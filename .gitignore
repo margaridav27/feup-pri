@@ -12,7 +12,7 @@ __pycache__/
 build/
 develop-eggs/
 dist/
-downloads/
+downloads/*.gz
 eggs/
 .eggs/
 lib/
