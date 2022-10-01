@@ -2,7 +2,7 @@
 
 ## Fetch data
 
-In a linux terminal run:
+In a linux terminal run (from root folder):
 ```sh
 $ bash src/fetch_data.sh
 ```
