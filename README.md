@@ -4,5 +4,5 @@
 
 In a linux terminal run:
 ```sh
-$ wget -i downloads/urls.txt -P ./downloads/ -q --show-progress 
+$ bash src/fetch_data.sh
 ```
