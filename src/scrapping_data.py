@@ -13,13 +13,10 @@ def get_synopsis(row):
     soup = BeautifulSoup(html_doc, 'html.parser')
     synopsis_ul = soup.find(id='plot-synopsis-content').li
 
-    is_empty = (synopsis_ul.p != None)
-
-
     # if empty, skip or get summaries
-    if is_empty:
+    if synopsis_ul.get('id') == 'no-synopsis-content':
         summaries_ul = soup.find(id='plot-summaries-content').li
-        return summaries_ul.get_text()
+        return np.nan if (summaries_ul.get('id') == 'no-summary-content') else summaries_ul.get_text()
         
     return synopsis_ul.get_text()
 
