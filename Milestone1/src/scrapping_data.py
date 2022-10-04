@@ -29,6 +29,8 @@ def get_pages():
     df['synopsis'] = df.progress_apply(get_synopsis, axis=1)
     with pd.option_context('display.max_rows', None, 'display.max_columns', None):  # more options can be specified also
         print(df)
+
+    df.to_csv('../data/final_data.csv', index=False, sep=';')
     
 
 
