@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from tqdm import tqdm
 from bs4 import BeautifulSoup
 import urllib.request
 
@@ -17,10 +18,8 @@ def get_synopsis(row):
 
     # if empty, skip or get summaries
     if is_empty:
-        summaries_ul = soup.find(id='plot-summaries-content')
-        print(summaries_ul.li)
-        return summaries_ul.li[0]
-        return np.nan
+        summaries_ul = soup.find(id='plot-summaries-content').li
+        return summaries_ul.get_text()
         
     return synopsis_ul.get_text()
 
@@ -30,13 +29,15 @@ def get_synopsis(row):
 def get_pages():
     df = pd.read_csv('./data/data.csv', delimiter=';')
 
-    df['synopsis'] = df.apply(get_synopsis, axis=1)
+    df['synopsis'] = df.progress_apply(get_synopsis, axis=1)
     with pd.option_context('display.max_rows', None, 'display.max_columns', None):  # more options can be specified also
         print(df)
     
 
 
 def main():
+    tqdm.pandas()
+
     get_pages()
 
 if __name__ == "__main__":
