@@ -1,3 +1,6 @@
+prepare_data: unzip
+	python create_dataset.py
+
 unzip: fetch_data
 	gzip -d downloads/*.gz
 
