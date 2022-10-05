@@ -1,13 +1,15 @@
 import pandas as pd
 
-title_basics = pd.read_csv('../downloads/title.basics.tsv', delimiter='\t', dtype={'isAdult': object})
-title_crew = pd.read_csv('../downloads/title.crew.tsv', delimiter='\t', dtype={'directors': str})
-title_ratings = pd.read_csv('../downloads/title.ratings.tsv', delimiter='\t')
-name_basics = pd.read_csv('../downloads/name.basics.tsv', delimiter='\t', dtype={'primaryName': str})
+print("Reading CSV's...")
+title_basics = pd.read_csv('./downloads/title.basics.tsv', delimiter='\t', dtype={'isAdult': object})
+title_crew = pd.read_csv('./downloads/title.crew.tsv', delimiter='\t', dtype={'directors': str})
+title_ratings = pd.read_csv('./downloads/title.ratings.tsv', delimiter='\t')
+name_basics = pd.read_csv('./downloads/name.basics.tsv', delimiter='\t', dtype={'primaryName': str})
 
 
 # filter by titleType
 
+print("Filtering titles...")
 title_basics = title_basics[(title_basics['titleType'] == 'movie') | (title_basics['titleType'] == 'tvMovie')]
 title_basics.reset_index(inplace=True, drop=True)
 
@@ -28,6 +30,7 @@ name_basics.drop(labels=['birthYear', 'deathYear', 'primaryProfession', 'knownFo
 
 # create dataset
 
+print("Merging dataframes...")
 df = title_basics.merge(title_crew, on='tconst', how='left').merge(title_ratings, on='tconst', how='left')
 
 
@@ -59,4 +62,5 @@ df['directors'] = directors_column
 
 # save dataset
 
-df.to_csv('../data/data.csv', index=False, sep=';')
+print("Saving clean data to CSV file...")
+df.to_csv('./data/data.csv', index=False, sep=';')
