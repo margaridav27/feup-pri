@@ -36,7 +36,7 @@ df = title_basics.merge(title_crew, on='tconst', how='left').merge(title_ratings
 
 # remove movies with ratings below 7 or null values
 
-df = df[(not df['averageRating'].isnull()) & (df['averageRating'] >= 7)]
+df = df[(df['averageRating'].notnull()) & (df['averageRating'] >= 7)]
 df.reset_index(inplace=True, drop=True)
 
 
