@@ -20,24 +20,11 @@ def get_synopsis(row):
         
     return synopsis_ul.get_text()
 
+tqdm.pandas()
+df = pd.read_csv('./data/data.csv', delimiter=';')
 
-    
+print("Scrapping synopsis...")
+df['synopsis'] = df.progress_apply(get_synopsis, axis=1)
 
-def get_pages():
-    df = pd.read_csv('./data/data.csv', delimiter=';')
-
-    df['synopsis'] = df.progress_apply(get_synopsis, axis=1)
-    with pd.option_context('display.max_rows', None, 'display.max_columns', None):  # more options can be specified also
-        print(df)
-
-    df.to_csv('../data/final_data.csv', index=False, sep=';')
-    
-
-
-def main():
-    tqdm.pandas()
-
-    get_pages()
-
-if __name__ == "__main__":
-    main()
+print("Saving final data to CSV file...")
+df.to_csv('./data/final_data.csv', index=False, sep=';')
