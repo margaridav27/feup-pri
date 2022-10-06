@@ -10,9 +10,9 @@ URLS = title.akas.tsv.gz title.basics.tsv.gz title.crew.tsv.gz title.ratings.tsv
 collect:
 	mkdir -p data/
 	for url in $(URLS); do \
-		wget -P ./data/ -q --show-progress https://datasets.imdbws.com/$$url; \
+		wget -P data/ -q --show-progress https://datasets.imdbws.com/$$url; \
 	done
-	gzip -d ./data/*.gz
+	gzip -d data/*.gz
 
 process:
 	mkdir -p processed/
