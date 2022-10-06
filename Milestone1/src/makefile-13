@@ -1,11 +1,11 @@
-all: clean collect process analyze
+all: clean collect process scrape
 
 clean:
 	rm -rf data processed
 
 URLS = title.akas.tsv.gz title.basics.tsv.gz title.crew.tsv.gz title.ratings.tsv.gz name.basics.tsv.gz
 
-.PHONY: collect process scrape
+.PHONY: collect processed
 
 collect:
 	mkdir -p data/

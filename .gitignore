@@ -12,8 +12,7 @@ __pycache__/
 build/
 develop-eggs/
 dist/
-*/downloads/*
-!*/downloads/*.txt
+downloads/
 eggs/
 .eggs/
 lib/
@@ -26,5 +25,8 @@ share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+
+data/
+processed/
 
 .DS_Store
