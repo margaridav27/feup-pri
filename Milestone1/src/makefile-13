@@ -1,11 +1,22 @@
-scrape_data: prepare_data
-	python3 src/scrape_data.py
+all: clean collect process analyze
 
-prepare_data: unzip
+clean:
+	rm -rf data processed
+
+URLS = title.akas.tsv.gz title.basics.tsv.gz title.crew.tsv.gz title.ratings.tsv.gz name.basics.tsv.gz
+
+.PHONY: collect process scrape
+
+collect:
+	mkdir -p data/
+	for url in $(URLS); do \
+		wget -P ./data/ -q --show-progress https://datasets.imdbws.com/$$url; \
+	done
+	gzip -d ./data/*.gz
+
+process:
+	mkdir -p processed/
 	python3 src/prepare_data.py
 
-unzip: fetch_data
-	gzip -d downloads/*.gz
-
-fetch_data:
-	wget -i downloads/urls.txt -P ./downloads/ -q --show-progress
+scrape:
+	python3 src/scrape_data.py

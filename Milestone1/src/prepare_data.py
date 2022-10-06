@@ -1,10 +1,10 @@
 import pandas as pd
 
 print("Reading CSV's...")
-title_basics = pd.read_csv('./downloads/title.basics.tsv', delimiter='\t', dtype={'isAdult': object})
-title_crew = pd.read_csv('./downloads/title.crew.tsv', delimiter='\t', dtype={'directors': str})
-title_ratings = pd.read_csv('./downloads/title.ratings.tsv', delimiter='\t')
-name_basics = pd.read_csv('./downloads/name.basics.tsv', delimiter='\t', dtype={'primaryName': str})
+title_basics = pd.read_csv('./data/title.basics.tsv', delimiter='\t', dtype={'isAdult': object})
+title_crew = pd.read_csv('./data/title.crew.tsv', delimiter='\t', dtype={'directors': str})
+title_ratings = pd.read_csv('./data/title.ratings.tsv', delimiter='\t')
+name_basics = pd.read_csv('./data/name.basics.tsv', delimiter='\t', dtype={'primaryName': str})
 
 
 # filter by titleType
@@ -63,4 +63,4 @@ df['directors'] = directors_column
 # save dataset
 
 print("Saving clean data to CSV file...")
-df.to_csv('./data/data.csv', index=False, sep=';')
+df.to_csv('./processed/data.csv', index=False, sep=';')

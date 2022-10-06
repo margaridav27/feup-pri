@@ -21,10 +21,16 @@ def get_synopsis(row):
     return synopsis_ul.get_text()
 
 tqdm.pandas()
-df = pd.read_csv('./data/data.csv', delimiter=';')
+df = pd.read_csv('./processed/data.csv', delimiter=';')
 
-print("Scrapping synopsis...")
-df['synopsis'] = df.progress_apply(get_synopsis, axis=1)
+print("Scraping synopsis...")
+try:
+    df['synopsis'] = df.progress_apply(get_synopsis, axis=1)
+except Exception as e:
+    print('ERROR: ', e)
+finally:
+    df.to_csv('./data/final_data.csv', index=False, sep=';')
+
 
 print("Saving final data to CSV file...")
-df.to_csv('./data/final_data.csv', index=False, sep=';')
+df.to_csv('./processed/final_data.csv', index=False, sep=';')
