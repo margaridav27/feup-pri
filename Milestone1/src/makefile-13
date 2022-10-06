@@ -1,5 +1,8 @@
+scrape_data: prepare_data
+	python3 src/scrape_data.py
+
 prepare_data: unzip
-	python create_dataset.py
+	python3 src/prepare_data.py
 
 unzip: fetch_data
 	gzip -d downloads/*.gz
