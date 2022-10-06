@@ -29,7 +29,7 @@ try:
 except Exception as e:
     print('ERROR: ', e)
 finally:
-    df.to_csv('./data/final_data.csv', index=False, sep=';')
+    df.to_csv('./processed/final_data.csv', index=False, sep=';')
 
 
 print("Saving final data to CSV file...")
