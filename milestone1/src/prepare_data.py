@@ -1,6 +1,5 @@
 import pandas as pd
 
-print("Reading CSV's...")
 title_basics = pd.read_csv('./data/title.basics.tsv', delimiter='\t', dtype={'isAdult': object})
 title_crew = pd.read_csv('./data/title.crew.tsv', delimiter='\t', dtype={'directors': str})
 title_ratings = pd.read_csv('./data/title.ratings.tsv', delimiter='\t')
@@ -20,6 +19,10 @@ title_basics['startYear'] = pd.to_numeric(title_basics['startYear'], errors='coe
 title_basics = title_basics[title_basics['startYear'] > 1990]
 title_basics.reset_index(drop=True, inplace=True)
 
+# remove movies with ratings below 7 or null values
+
+title_ratings = title_ratings[(title_ratings['averageRating'].notnull()) & (title_ratings['averageRating'] >= 7)]
+title_ratings.reset_index(inplace=True, drop=True)
 
 # drop useless columns 
 
@@ -31,13 +34,7 @@ name_basics.drop(labels=['birthYear', 'deathYear', 'primaryProfession', 'knownFo
 # create dataset
 
 print("Merging dataframes...")
-df = title_basics.merge(title_crew, on='tconst', how='left').merge(title_ratings, on='tconst', how='left')
-
-
-# remove movies with ratings below 7 or null values
-
-df = df[(df['averageRating'].notnull()) & (df['averageRating'] >= 7)]
-df.reset_index(inplace=True, drop=True)
+df = title_basics.merge(title_crew, on='tconst', how='left').merge(title_ratings, on='tconst', how='inner')
 
 
 # explode movie rows with more than one director into multiple rows, each one with only one director code

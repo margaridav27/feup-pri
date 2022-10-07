@@ -13,10 +13,7 @@ collect:
 
 process:
 	mkdir -p processed/
-	python3 src/filter_data.py
-	python3 src/drop_columns.py
-	python3 src/merge_data.py
-	python3 src/get_directors.py
+	python3 src/prepare_data.py
 
 scrape:
 	python3 src/scrape_data.py
