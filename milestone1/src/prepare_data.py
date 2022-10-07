@@ -28,7 +28,6 @@ title_ratings.reset_index(inplace=True, drop=True)
 
 title_basics.drop(labels=['endYear', 'titleType'], axis=1, inplace=True)
 title_crew.drop(labels=['writers'], axis=1, inplace=True)
-title_ratings.drop(labels=['numVotes'], axis=1, inplace=True)
 name_basics.drop(labels=['birthYear', 'deathYear', 'primaryProfession', 'knownForTitles'], axis=1, inplace=True)
 
 # create dataset
