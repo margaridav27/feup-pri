@@ -22,5 +22,5 @@ df.drop_duplicates(subset='tconst', inplace=True)
 df['directors'] = directors_column
 
 # save dataset
-
+df.rename(columns={'startYear': 'year', 'runtimeMinutes': 'duration', 'averageRating': 'avgRating'}, inplace=True)
 df.to_csv('./processed/data.csv', index=False, sep=';')

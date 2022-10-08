@@ -59,4 +59,5 @@ df['directors'] = directors_column
 # save dataset
 
 print("Saving clean data to CSV file...")
+df.rename(columns={'startYear': 'year', 'runtimeMinutes': 'duration', 'averageRating': 'avgRating'}, inplace=True)
 df.to_csv('./processed/data.csv', index=False, sep=';')
