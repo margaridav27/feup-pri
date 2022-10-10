@@ -28,9 +28,10 @@ process:
 
 	# Merge all dataframes
 	python3 src/merge_data.py
-	
+
 	# Replace the id of each director with the respective name
 	python3 src/get_directors.py
+
 
 scrape:
 	# This target is reserved for scrapping the synopsis both from IMDb or Wikipedia
@@ -39,6 +40,9 @@ scrape:
 join:
 	# This target merges the synopsis with the processed dataframe
 	python3 src/join_data.py
+
+	# Drop movies without synopsis and clean synopsis text
+	python3 src/clean_synopsis.py
 
 analyze:
 	# This target isolates all data analysis scripts
