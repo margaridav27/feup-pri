@@ -190,6 +190,7 @@ plots = [
     plot_number_movies_per_avg_rating, 
     plot_statistics_genres,
     plot_relation_number_votes_avg_rating,
+    plot_directors_wordcloud,
     plot_documentary_wordcloud,
     plot_biography_wordcloud,
     plot_comedy_wordcloud,
