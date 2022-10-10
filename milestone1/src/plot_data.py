@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 from wordcloud import WordCloud
 
-df = pd.read_csv("data.csv", delimiter=';')
+df = pd.read_csv("src/data.csv", delimiter=';')
 
 df_genre = df.assign(genres=df['genres'].str.split(',')).explode('genres')
 
@@ -33,7 +33,7 @@ def plot_number_movies_per_year():
     plt.ylabel('Count')
     plt.xlabel('Year')
 
-    plt.savefig('../docs/graphics/movies_per_year.png')
+    plt.savefig('docs/analysis/movies_per_year.png')
 
 def plot_number_movies_per_genre():
     plt.figure(figsize=(10, 6), dpi=80)
@@ -44,7 +44,7 @@ def plot_number_movies_per_genre():
     plt.ylabel('Count')
     plt.xlabel('Genre')
 
-    plt.savefig('../docs/graphics/number_movies_per_year.png')
+    plt.savefig('docs/analysis/number_movies_per_year.png')
 
 def plot_number_adult_movies():
     plt.figure(figsize=(10, 6), dpi=80)
@@ -54,7 +54,7 @@ def plot_number_adult_movies():
     plt.yscale('log')
     plt.xlabel('Adult movies')
 
-    plt.savefig('../docs/graphics/number_adult_movies.png')
+    plt.savefig('docs/analysis/number_adult_movies.png')
 
 def plot_number_movies_per_avg_rating():
     plt.figure(figsize=(10, 6), dpi=80)
@@ -63,18 +63,18 @@ def plot_number_movies_per_avg_rating():
     plt.ylabel('Count')
     plt.xlabel('Average Rating')
 
-    plt.savefig('../docs/graphics/number_movies_per_avg_rating.png')
+    plt.savefig('docs/analysis/number_movies_per_avg_rating.png')
 
 def plot_statistics_genres():
     df_genre.boxplot(column='averageRating', by='genres', figsize=(50,20), color='black', fontsize='35', rot='vertical')
-    plt.savefig('../docs/graphics/statistics_genres.png')
+    plt.savefig('docs/analysis/statistics_genres.png')
 
 def plot_relation_number_votes_avg_rating():
     df.plot(kind='scatter', x='numVotes', y='averageRating', logx=True, alpha=0.7, color=['#6C8EBF'], figsize=(10,10))
 
     plt.ylabel('IMDB Rating')
     plt.xlabel('Number of Votes')
-    plt.savefig('../docs/graphics/number_votes_avg_rating.png')
+    plt.savefig('docs/analysis/number_votes_avg_rating.png')
 
 def plot_directors_wordcloud():
     comment_words = ''
@@ -100,7 +100,7 @@ def plot_directors_wordcloud():
     plt.axis('off')
     plt.tight_layout(pad=0)
 
-    plt.savefig('../docs/graphics/directors_wordcloud.png')
+    plt.savefig('docs/analysis/directors_wordcloud.png')
 
 def plot_documentary_wordcloud():
     documentary = df_genre[df_genre['genres'] == 'Documentary']
@@ -116,7 +116,7 @@ def plot_documentary_wordcloud():
     plt.imshow(wordcloud)
     plt.axis('off')
     plt.tight_layout(pad=0)
-    plt.savefig('../docs/graphics/documentary_wordcloud.png')
+    plt.savefig('docs/analysis/documentary_wordcloud.png')
 
 def plot_drama_wordcloud():
     drama = df_genre[df_genre['genres'] == 'Drama']
@@ -132,7 +132,7 @@ def plot_drama_wordcloud():
     plt.imshow(wordcloud)
     plt.axis('off')
     plt.tight_layout(pad=0)
-    plt.savefig('../docs/graphics/drama_wordcloud.png')
+    plt.savefig('docs/analysis/drama_wordcloud.png')
 
 def plot_comedy_wordcloud():
     comedy = df_genre[df_genre['genres'] == 'Comedy']
@@ -148,7 +148,7 @@ def plot_comedy_wordcloud():
     plt.imshow(wordcloud)
     plt.axis('off')
     plt.tight_layout(pad=0)
-    plt.savefig('../docs/graphics/comedy_wordcloud.png')
+    plt.savefig('docs/analysis/comedy_wordcloud.png')
 
 def plot_biography_wordcloud():
     biography = df_genre[df_genre['genres'] == 'Biography']
@@ -164,7 +164,7 @@ def plot_biography_wordcloud():
     plt.imshow(wordcloud)
     plt.axis('off')
     plt.tight_layout(pad=0)
-    plt.savefig('../docs/graphics/biography_wordcloud.png')
+    plt.savefig('docs/analysis/biography_wordcloud.png')
 
 def plot_romance_word_cloud():
     romance = df_genre[df_genre['genres'] == 'Romance']
@@ -180,7 +180,7 @@ def plot_romance_word_cloud():
     plt.imshow(wordcloud)
     plt.axis('off')
     plt.tight_layout(pad=0)
-    plt.savefig('../docs/graphics/romance_wordcloud.png')
+    plt.savefig('docs/analysis/romance_wordcloud.png')
 
 
 plots = [
@@ -198,8 +198,8 @@ plots = [
     plot_romance_word_cloud,
     ]
 
-for i, c in enumerate(plots):
-    print("Plotting: %s - %d of %d" % (c.__name__, i + 1, len(plots)))
-    c()
+for i, plot_func in enumerate(plots):
+    print("Plotting: %s - %d of %d" % (plot_func.__name__, i + 1, len(plots)))
+    plot_func()
 
 
