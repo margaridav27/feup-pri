@@ -11,6 +11,20 @@ df_directors = df.assign(directors=df['directors'].str.split(',')).explode('dire
 df_directors['directors'] = df_directors['directors'].apply(lambda x: '_'.join(str(x).split(' ')))
 df_directors = df_directors[df_directors['directors'] != 'nan']
 
+def return_text(df):
+    text = ''
+
+    for idx, row in df.iterrows():
+        val = str(row['synopsis'])
+
+        tokens = val.split()
+
+        for i in range(len(tokens)):
+            tokens[i] = tokens[i].lower()
+
+        text += " ".join(tokens)+" "  
+    return text
+
 def plot_number_movies_per_year():
     plt.figure(figsize=(10, 6), dpi=80)
 
@@ -62,7 +76,7 @@ def plot_relation_number_votes_avg_rating():
     plt.xlabel('Number of Votes')
     plt.savefig('docs/analysis/number_votes_avg_rating.png')
 
-def plot_directors_word_cloud():
+def plot_directors_wordcloud():
     comment_words = ''
 
     for index, row in df_directors.iterrows():
@@ -88,6 +102,86 @@ def plot_directors_word_cloud():
 
     plt.savefig('docs/analysis/directors_wordcloud.png')
 
+def plot_documentary_wordcloud():
+    documentary = df_genre[df_genre['genres'] == 'Documentary']
+
+    wordcloud = WordCloud(
+        width=800, 
+        height=800,
+        background_color='white', 
+        colormap='Set2',
+        min_font_size=10).generate(return_text(documentary))
+    
+    plt.figure(figsize=(8,8), facecolor=None)
+    plt.imshow(wordcloud)
+    plt.axis('off')
+    plt.tight_layout(pad=0)
+    plt.savefig('../docs/graphics/documentary_wordcloud.png')
+
+def plot_drama_wordcloud():
+    drama = df_genre[df_genre['genres'] == 'Drama']
+
+    wordcloud = WordCloud(
+        width=800, 
+        height=800,
+        background_color='white', 
+        colormap='Set2',
+        min_font_size=10).generate(return_text(drama))
+    
+    plt.figure(figsize=(8,8), facecolor=None)
+    plt.imshow(wordcloud)
+    plt.axis('off')
+    plt.tight_layout(pad=0)
+    plt.savefig('../docs/graphics/drama_wordcloud.png')
+
+def plot_comedy_wordcloud():
+    comedy = df_genre[df_genre['genres'] == 'Comedy']
+
+    wordcloud = WordCloud(
+        width=800, 
+        height=800,
+        background_color='white', 
+        colormap='Set2',
+        min_font_size=10).generate(return_text(comedy))
+    
+    plt.figure(figsize=(8,8), facecolor=None)
+    plt.imshow(wordcloud)
+    plt.axis('off')
+    plt.tight_layout(pad=0)
+    plt.savefig('../docs/graphics/comedy_wordcloud.png')
+
+def plot_biography_wordcloud():
+    biography = df_genre[df_genre['genres'] == 'Biography']
+
+    wordcloud = WordCloud(
+        width=800, 
+        height=800,
+        background_color='white', 
+        colormap='Set2',
+        min_font_size=10).generate(return_text(biography))
+    
+    plt.figure(figsize=(8,8), facecolor=None)
+    plt.imshow(wordcloud)
+    plt.axis('off')
+    plt.tight_layout(pad=0)
+    plt.savefig('../docs/graphics/biography_wordcloud.png')
+
+def plot_romance_word_cloud():
+    romance = df_genre[df_genre['genres'] == 'Romance']
+
+    wordcloud = WordCloud(
+        width=800, 
+        height=800,
+        background_color='white', 
+        colormap='Set2',
+        min_font_size=10).generate(return_text(romance))
+    
+    plt.figure(figsize=(8,8), facecolor=None)
+    plt.imshow(wordcloud)
+    plt.axis('off')
+    plt.tight_layout(pad=0)
+    plt.savefig('../docs/graphics/romance_wordcloud.png')
+
 
 plots = [
     plot_number_movies_per_year, 
@@ -96,7 +190,11 @@ plots = [
     plot_number_movies_per_avg_rating, 
     plot_statistics_genres,
     plot_relation_number_votes_avg_rating,
-    plot_directors_word_cloud
+    plot_documentary_wordcloud,
+    plot_biography_wordcloud,
+    plot_comedy_wordcloud,
+    plot_drama_wordcloud,
+    plot_romance_word_cloud,
     ]
 
 for i, plot_func in enumerate(plots):
