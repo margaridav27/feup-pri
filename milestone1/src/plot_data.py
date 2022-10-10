@@ -116,7 +116,7 @@ def plot_documentary_wordcloud():
     plt.imshow(wordcloud)
     plt.axis('off')
     plt.tight_layout(pad=0)
-    plt.savefig('../docs/graphics/documentary_wordcloud.png')
+    plt.savefig('docs/analysis/documentary_wordcloud.png')
 
 def plot_drama_wordcloud():
     drama = df_genre[df_genre['genres'] == 'Drama']
@@ -132,7 +132,7 @@ def plot_drama_wordcloud():
     plt.imshow(wordcloud)
     plt.axis('off')
     plt.tight_layout(pad=0)
-    plt.savefig('../docs/graphics/drama_wordcloud.png')
+    plt.savefig('docs/analysis/drama_wordcloud.png')
 
 def plot_comedy_wordcloud():
     comedy = df_genre[df_genre['genres'] == 'Comedy']
@@ -148,7 +148,7 @@ def plot_comedy_wordcloud():
     plt.imshow(wordcloud)
     plt.axis('off')
     plt.tight_layout(pad=0)
-    plt.savefig('../docs/graphics/comedy_wordcloud.png')
+    plt.savefig('docs/analysis/comedy_wordcloud.png')
 
 def plot_biography_wordcloud():
     biography = df_genre[df_genre['genres'] == 'Biography']
@@ -164,7 +164,7 @@ def plot_biography_wordcloud():
     plt.imshow(wordcloud)
     plt.axis('off')
     plt.tight_layout(pad=0)
-    plt.savefig('../docs/graphics/biography_wordcloud.png')
+    plt.savefig('docs/analysis/biography_wordcloud.png')
 
 def plot_romance_word_cloud():
     romance = df_genre[df_genre['genres'] == 'Romance']
@@ -180,7 +180,7 @@ def plot_romance_word_cloud():
     plt.imshow(wordcloud)
     plt.axis('off')
     plt.tight_layout(pad=0)
-    plt.savefig('../docs/graphics/romance_wordcloud.png')
+    plt.savefig('docs/analysis/romance_wordcloud.png')
 
 
 plots = [
@@ -190,6 +190,7 @@ plots = [
     plot_number_movies_per_avg_rating, 
     plot_statistics_genres,
     plot_relation_number_votes_avg_rating,
+    plot_directors_wordcloud,
     plot_documentary_wordcloud,
     plot_biography_wordcloud,
     plot_comedy_wordcloud,
