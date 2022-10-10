@@ -43,4 +43,4 @@ analyze:
 	python3 src/plot_data.py
 
 clean:
-	rm -rf data processed docs/graphics
+	rm -rf data processed docs/analysis
