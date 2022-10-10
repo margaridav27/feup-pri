@@ -2,9 +2,12 @@ URLS = title.akas.tsv.gz title.basics.tsv.gz title.crew.tsv.gz title.ratings.tsv
 
 .PHONY: collect processed
 
-all: clean collect process scrape join visual_analysis
+all: clean collect process scrape join analyze
 
 collect:
+	# This target envolves the data collection process
+	# Start by downloading files from the IMDb server
+	# and unzip the latter
 	mkdir -p data/
 	for url in $(URLS); do \
 		wget -P data/ -q --show-progress https://datasets.imdbws.com/$$url; \
@@ -12,20 +15,32 @@ collect:
 	gzip -d data/*.gz
 
 process:
+	# This target is reserved for data processing
 	mkdir -p processed/
+	# Filter out streaming content appart from movies
+	# after 1990 and an average rating over 7
 	python3 src/filter_data.py
+	# Drop unnecessary columns such as:
+	# 'endYear', 'titleType', etc.
 	python3 src/drop_columns.py
+	# Merge all dataframes
 	python3 src/merge_data.py
+	# Replace the id of each director with the respective name
 	python3 src/get_directors.py
 
 scrape:
+	# This target is reserved for scrapping the synopsis both from IMDb or Wikipedia
 	python3 src/scrape_data.py
 
-join: 
+join:
+	# This target merges the synopsis with the processed dataframe
 	python3 src/join_data.py
 
-visual_analysis:
+analyze:
+	# This target isolates all data analysis scripts
+	# Generate plots
+	mkdir -p docs/analysis/
 	python3 src/plot_data.py
 
 clean:
-	rm -rf data processed
+	rm -rf data processed docs/graphics
