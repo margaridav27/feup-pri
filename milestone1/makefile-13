@@ -17,14 +17,18 @@ collect:
 process:
 	# This target is reserved for data processing
 	mkdir -p processed/
-	# Filter out streaming content appart from movies
+
+	# Filter out streaming content apart from movies
 	# after 1990 and an average rating over 7
 	python3 src/filter_data.py
+
 	# Drop unnecessary columns such as:
 	# 'endYear', 'titleType', etc.
 	python3 src/drop_columns.py
+
 	# Merge all dataframes
 	python3 src/merge_data.py
+	
 	# Replace the id of each director with the respective name
 	python3 src/get_directors.py
 
