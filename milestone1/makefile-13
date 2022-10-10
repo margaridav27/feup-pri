@@ -2,7 +2,7 @@ URLS = title.akas.tsv.gz title.basics.tsv.gz title.crew.tsv.gz title.ratings.tsv
 
 .PHONY: collect processed
 
-all: clean collect process scrape join
+all: clean collect process scrape join visual_analysis
 
 collect:
 	mkdir -p data/
@@ -23,6 +23,9 @@ scrape:
 
 join: 
 	python3 src/join_data.py
+
+visual_analysis:
+	python3 src/plot_data.py
 
 clean:
 	rm -rf data processed

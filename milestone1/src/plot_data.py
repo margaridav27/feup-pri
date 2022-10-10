@@ -1,40 +1,106 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from wordcloud import WordCloud
 
-df = pd.read_csv("./data/final_data.csv'")
+df = pd.read_csv("data.csv", delimiter=';')
+
+df_genre = df.assign(genres=df['genres'].str.split(',')).explode('genres')
+
+df_directors = df.assign(directors=df['directors'].str.split(',')).explode('directors')
+df_directors['directors'] = df_directors['directors'].apply(lambda x: '_'.join(str(x).split(' ')))
+df_directors = df_directors[df_directors['directors'] != 'nan']
 
 def plot_number_movies_per_year():
+    plt.figure(figsize=(10, 6), dpi=80)
 
-    # create serie to plot
-    movies_year = df.groupby(df["startYear"]).count()["tconst"]
+    plt.hist(df['startYear'], color='#6C8EBF') 
 
-    # configure plot
-    plt.rcParams.update({"font.size": 8})
-    plt.ylabel("Count of movies")
-    plt.title("Movies per Year")
+    plt.ylabel('Count')
+    plt.xlabel('Year')
 
-    # create plot
-    movies_year.plot.bar()
+    plt.savefig('../docs/graphics/movies_per_year.png')
 
-    fig = plt.pyplot.gcf()
-    fig.set_size_inches(18.5, 10.5)
-    fig.savefig('number_movies_per_year.png')
-    plt.clf()
+def plot_number_movies_per_genre():
+    plt.figure(figsize=(10, 6), dpi=80)
+    plt.xticks(rotation=90)
 
-plots = [plot_number_movies_per_year]
+    df_genre['genres'].value_counts().plot.bar(color='#FFEB79')
+
+    plt.ylabel('Count')
+    plt.xlabel('Genre')
+
+    plt.savefig('../docs/graphics/number_movies_per_year.png')
+
+def plot_number_adult_movies():
+    plt.figure(figsize=(10, 6), dpi=80)
+    df['isAdult'].value_counts().plot.bar(color='#6C8EBF')
+
+    plt.ylabel('Count')
+    plt.yscale('log')
+    plt.xlabel('Adult movies')
+
+    plt.savefig('../docs/graphics/number_adult_movies.png')
+
+def plot_number_movies_per_avg_rating():
+    plt.figure(figsize=(10, 6), dpi=80)
+
+    plt.hist(df_genre['averageRating'], color='#FFEB79')  
+    plt.ylabel('Count')
+    plt.xlabel('Average Rating')
+
+    plt.savefig('../docs/graphics/number_movies_per_avg_rating.png')
+
+def plot_statistics_genres():
+    df_genre.boxplot(column='averageRating', by='genres', figsize=(50,20), color='black', fontsize='35', rot='vertical')
+    plt.savefig('../docs/graphics/statistics_genres.png')
+
+def plot_relation_number_votes_avg_rating():
+    df.plot(kind='scatter', x='numVotes', y='averageRating', logx=True, alpha=0.7, color=['#6C8EBF'], figsize=(10,10))
+
+    plt.ylabel('IMDB Rating')
+    plt.xlabel('Number of Votes')
+    plt.savefig('../docs/graphics/number_votes_avg_rating.png')
+
+def plot_directors_word_cloud():
+    comment_words = ''
+
+    for index, row in df_directors.iterrows():
+        val = str(row['directors'])
+        tokens = val.split()
+
+        for i in range(len(tokens)):
+            tokens[i] = tokens[i].lower()
+
+        comment_words += " ".join(tokens)+" "
+
+    wordcloud = WordCloud(
+        width=800, 
+        height=800,
+        background_color='white', 
+        colormap='Set2',
+        min_font_size=10).generate(comment_words)
+    
+    plt.figure(figsize=(8,8), facecolor=None)
+    plt.imshow(wordcloud)
+    plt.axis('off')
+    plt.tight_layout(pad=0)
+
+    plt.savefig('../docs/graphics/directors_wordcloud.png')
+
+
+plots = [
+    plot_number_movies_per_year, 
+    plot_number_movies_per_genre, 
+    plot_number_adult_movies, 
+    plot_number_movies_per_avg_rating, 
+    plot_statistics_genres,
+    plot_relation_number_votes_avg_rating,
+    plot_directors_word_cloud
+    ]
 
 for i, c in enumerate(plots):
     print("Plotting: %s - %d of %d" % (c.__name__, i + 1, len(plots)))
     c()
 
 
-#- movies per year
-#- movies per director
-#- movies per genre
-#- genre per director
-#- movies per duration
-#- duration per genre
-#- averageRating statistics
-#- wordcloud synopsis
-#- wordcloud title
