@@ -9,6 +9,8 @@ In this small tutorial, we will go through the most common steps to quickly get 
 ## 1. Running Solr
 `docker build . -t imdb_movies`
 
+`docker run -p 8393:8393 imdb_movies`
+
 Other options include working with Docker volumes, which can be tricky here since collection information is stored on write-protected directories; or running Solr directly on your host machine, which will keep these files even after shutdown.
 This has the unfortunate downside of, on one hand, polluting your machine, as well as making it more difficult to automate and share progress with your colleagues.
 
