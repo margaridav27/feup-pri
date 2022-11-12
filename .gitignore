@@ -30,3 +30,6 @@ milestone1/data/
 milestone1/processed/
 
 .DS_Store
+
+.vscode
+.ipynb_checkpoints/
