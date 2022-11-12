@@ -5,20 +5,26 @@
             "class":"solr.TextField",
             "indexAnalyzer":{
                 "tokenizer":{
-                    "class":"solr.StandardTokenizerFactory"
+                    "class":"solr.LowerCaseTokenizerFactory"
                 },
                 "filters":[
                     {"class":"solr.ASCIIFoldingFilterFactory", "preserveOriginal":true},
-                    {"class":"solr.LowerCaseFilterFactory"}
+                    {"class":"solr.StopFilterFactory"},
+                    {"class":"solr.EnglishMinimalStemFilterFactory"},
+                    {"class":"solr.EnglishPossessiveFilterFactory"},
+                    {"class":"solr.PorterStemFilterFactory"}
                 ]
             },
             "queryAnalyzer":{
                 "tokenizer":{
-                    "class":"solr.StandardTokenizerFactory"
+                    "class":"solr.LowerCaseTokenizerFactory"
                 },
                 "filters":[
                     {"class":"solr.ASCIIFoldingFilterFactory", "preserveOriginal":true},
-                    {"class":"solr.LowerCaseFilterFactory"}
+                    {"class":"solr.StopFilterFactory"},
+                    {"class":"solr.EnglishMinimalStemFilterFactory"},
+                    {"class":"solr.EnglishPossessiveFilterFactory"},
+                    {"class":"solr.PorterStemFilterFactory"}
                 ]
             }
         }
