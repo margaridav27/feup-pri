@@ -1,4 +1,3 @@
-# metrics.py
 # Define custom decorator to automatically calculate metric based on key
 metrics = {}
 metric = lambda f: metrics.setdefault(f.__name__, f)
@@ -23,4 +22,3 @@ def p10(results, relevant, n=10):
 
 def calculate_metric(key, results, relevant):
     return metrics[key](results, relevant)
-
