@@ -1,0 +1,53 @@
+{
+	"add-field-type": [
+        {
+            "name":"textualField",
+            "class":"solr.TextField",
+            "indexAnalyzer":{
+                "tokenizer":{
+                    "class":"solr.StandardTokenizerFactory"
+                },
+                "filters":[
+                    {"class":"solr.ASCIIFoldingFilterFactory", "preserveOriginal":true},
+                    {"class":"solr.LowerCaseFilterFactory"}
+                ]
+            },
+            "queryAnalyzer":{
+                "tokenizer":{
+                    "class":"solr.StandardTokenizerFactory"
+                },
+                "filters":[
+                    {"class":"solr.ASCIIFoldingFilterFactory", "preserveOriginal":true},
+                    {"class":"solr.LowerCaseFilterFactory"}
+                ]
+            }
+        }
+    ],
+    "add-field": [
+        {
+            "name": "primaryTitle",
+            "type": "textualField",
+            "indexed": true
+        },
+        {
+            "name": "originalTitle",
+            "type": "textualField",
+            "indexed": true
+        },
+        {
+            "name": "genres",
+            "type": "textualField",
+            "indexed": true
+        },
+        {
+            "name": "directors",
+            "type": "textualField",
+            "indexed": true
+        },
+        {
+            "name": "synopsis",
+            "type": "textualField",
+            "indexed": true
+        }
+    ]
+}
