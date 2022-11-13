@@ -21,33 +21,88 @@
                     {"class":"solr.LowerCaseFilterFactory"}
                 ]
             }
+        },
+        {
+            "name": "id",
+            "class": "solr.StrField",
+            "indexed": false,
+            "docValues": false
+        },
+        {
+            "name": "integer",
+            "class": "solr.IntPointField",
+            "docValues": true
+        },
+        {
+            "name": "bool",
+            "class": "solr.BoolField",
+            "indexed": false,
+            "docValues": false
+        },
+        {
+            "name": "float",
+            "class": "solr.FloatPointField",
+            "docValues": true
+        },
+        {
+            "name": "floatNotIndexed",
+            "class": "solr.FloatPointField",
+            "indexed": false,
+            "docValues": false
+        },
+        {
+            "name": "integerNotIndexed",
+            "class": "solr.IntPointField",
+            "indexed": false,
+            "docValues": false
         }
     ],
     "add-field": [
         {
+            "name": "tconst",
+            "type": "id"
+        },
+        {
             "name": "primaryTitle",
-            "type": "textualField",
-            "indexed": true
+            "type": "textualField"
         },
         {
             "name": "originalTitle",
-            "type": "textualField",
-            "indexed": true
+            "type": "textualField"
+        },
+        {
+            "name": "isAdult",
+            "type": "bool"
+        },
+        {
+            "name": "startYear",
+            "type": "integer"
+        },
+        {
+            "name": "runtimeMinutes",
+            "type": "floatNotIndexed"
         },
         {
             "name": "genres",
             "type": "textualField",
-            "indexed": true
+            "multiValued": true
+        },
+        {
+            "name": "averageRating",
+            "type": "float"
+        },
+        {
+            "name": "numVotes",
+            "type": "integerNotIndexed"
         },
         {
             "name": "directors",
             "type": "textualField",
-            "indexed": true
+            "multiValued": true
         },
         {
             "name": "synopsis",
-            "type": "textualField",
-            "indexed": true
+            "type": "textualField"
         }
     ]
 }

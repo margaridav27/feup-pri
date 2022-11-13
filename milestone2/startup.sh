@@ -12,7 +12,7 @@ curl -X POST -H 'Content-type:application/json' \
                 http://localhost:8983/solr/imdb_movies/schema
 
 # Populate collection
-bin/post -c imdb_movies /data/data.csv
+bin/post -c imdb_movies /data/data.json
 
 # Restart in foreground mode so we can access the interface
 solr restart -f
