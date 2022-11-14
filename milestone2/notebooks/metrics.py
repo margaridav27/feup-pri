@@ -9,7 +9,7 @@ def ap(results, relevant):
         len([
             doc 
             for doc in results[:idx]
-            if doc['tconst'][0] in relevant
+            if doc['tconst'] in relevant
         ]) / idx 
         for idx in range(1, len(results))
     ]
@@ -18,7 +18,7 @@ def ap(results, relevant):
 @metric
 def p10(results, relevant, n=10):
     """Precision at N"""
-    return len([doc for doc in results[:n] if doc['tconst'][0] in relevant])/n
+    return len([doc for doc in results[:n] if doc['tconst'] in relevant])/n
 
 def calculate_metric(key, results, relevant):
     return metrics[key](results, relevant)
