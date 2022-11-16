@@ -29,6 +29,26 @@
             }
         },
         {
+            "name":"nameField",
+            "class":"solr.TextField",
+            "indexAnalyzer":{
+                "tokenizer":{
+                    "class":"solr.LowerCaseTokenizerFactory"
+                },
+                "filters":[
+                    {"class":"solr.ASCIIFoldingFilterFactory", "preserveOriginal":true}
+                ]
+            },
+            "queryAnalyzer":{
+                "tokenizer":{
+                    "class":"solr.LowerCaseTokenizerFactory"
+                },
+                "filters":[
+                    {"class":"solr.ASCIIFoldingFilterFactory", "preserveOriginal":true}
+                ]
+            }
+        },
+        {
             "name": "id",
             "class": "solr.StrField",
             "indexed": false,
@@ -103,7 +123,7 @@
         },
         {
             "name": "directors",
-            "type": "textualField",
+            "type": "nameField",
             "multiValued": true
         },
         {
