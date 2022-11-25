@@ -21,8 +21,13 @@ def p10(results, relevant, n=10):
     return len([doc for doc in results[:n] if doc['tconst'] in relevant])/n
 
 @metric
-def ia(results, relevant, n=10):
+def p15(results, relevant, n=15):
     """Precision at N"""
+    return len([doc for doc in results[:n] if doc['tconst'] in relevant])/n
+
+@metric
+def ia(results, relevant, n=10):
+    """Individual Assessment at N"""
     return "".join(["R" if doc['tconst'] in relevant else "N" for doc in results[:n]])
 
 def calculate_metric(key, results, relevant):
