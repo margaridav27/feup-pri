@@ -7,13 +7,18 @@ def ap(results, relevant):
     """Average Precision"""
     precision_values = [
         len([
-            doc 
+            doc
             for doc in results[:idx]
             if doc['tconst'] in relevant
-        ]) / idx 
+        ]) / idx
         for idx in range(1, len(results))
     ]
     return sum(precision_values)/len(precision_values)
+
+@metric
+def map(results, _):
+    """Mean Average Precision"""
+    return sum(results)/len(results)
 
 @metric
 def p10(results, relevant, n=10):
@@ -30,5 +35,5 @@ def ia(results, relevant, n=10):
     """Individual Assessment at N"""
     return "".join(["R" if doc['tconst'] in relevant else "N" for doc in results[:n]])
 
-def calculate_metric(key, results, relevant):
+def calculate_metric(key, results, relevant=None):
     return metrics[key](results, relevant)
