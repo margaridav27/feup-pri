@@ -1,6 +1,7 @@
 FROM solr:8.10
 
 COPY data/sample_data.json /data/data.json
+COPY data/my_synonyms.txt /data/my_synonyms.txt
 
 COPY schemas/movie_schema.json /data/movie_schema.json
 

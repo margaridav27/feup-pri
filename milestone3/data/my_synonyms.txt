@@ -1,0 +1,7 @@
+fondness,tenderness,intimacy,devotion,adoration,passion,attraction,temptation => love
+adolescent,youth => teen
+"small talk",chitchat => gossip
+universe,galaxy,cosmos,nebula => space
+cosmonaut,spaceman,"space traveller" => space
+xmas,noel => christmas
+"father christmas","saint nicholas",noel => santa

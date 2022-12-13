@@ -1,0 +1,170 @@
+{
+    "add-field-type": [
+        {
+            "name": "textualField",
+            "class": "solr.TextField",
+            "indexAnalyzer": {
+                "tokenizer": {
+                    "class": "solr.LowerCaseTokenizerFactory"
+                },
+                "filters": [
+                    {
+                        "class": "solr.ASCIIFoldingFilterFactory",
+                        "preserveOriginal": true
+                    },
+                    {
+                        "class": "solr.StopFilterFactory"
+                    },
+                    {
+                        "class": "solr.SynonymGraphFilterFactory",
+                        "synonyms": "synonyms.txt",
+                        "expand": true,
+                        "ignoreCase": true
+                    },
+                    {
+                        "class": "solr.PorterStemFilterFactory"
+                    }
+                ]
+            },
+            "queryAnalyzer": {
+                "tokenizer": {
+                    "class": "solr.LowerCaseTokenizerFactory"
+                },
+                "filters": [
+                    {
+                        "class": "solr.ASCIIFoldingFilterFactory",
+                        "preserveOriginal": true
+                    },
+                    {
+                        "class": "solr.StopFilterFactory"
+                    },
+                    {
+                        "class": "solr.PorterStemFilterFactory"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "nameField",
+            "class": "solr.TextField",
+            "indexAnalyzer": {
+                "tokenizer": {
+                    "class": "solr.LowerCaseTokenizerFactory"
+                },
+                "filters": [
+                    {
+                        "class": "solr.ASCIIFoldingFilterFactory",
+                        "preserveOriginal": true
+                    },
+                    {
+                        "class": "solr.BeiderMorseFilterFactory",
+                        "nameType": "GENERIC",
+                        "ruleType": "APPROX",
+                        "concat": "true",
+                        "languageSet": "auto"
+                    }
+                ]
+            },
+            "queryAnalyzer": {
+                "tokenizer": {
+                    "class": "solr.LowerCaseTokenizerFactory"
+                },
+                "filters": [
+                    {
+                        "class": "solr.ASCIIFoldingFilterFactory",
+                        "preserveOriginal": true
+                    },
+                    {
+                        "class": "solr.BeiderMorseFilterFactory",
+                        "nameType": "GENERIC",
+                        "ruleType": "APPROX",
+                        "concat": "true",
+                        "languageSet": "auto"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "id",
+            "class": "solr.StrField",
+            "indexed": false,
+            "docValues": false
+        },
+        {
+            "name": "integer",
+            "class": "solr.IntPointField",
+            "docValues": true
+        },
+        {
+            "name": "bool",
+            "class": "solr.BoolField",
+            "indexed": false,
+            "docValues": false
+        },
+        {
+            "name": "float",
+            "class": "solr.FloatPointField",
+            "docValues": true
+        },
+        {
+            "name": "floatNotIndexed",
+            "class": "solr.FloatPointField",
+            "indexed": false,
+            "docValues": false
+        },
+        {
+            "name": "integerNotIndexed",
+            "class": "solr.IntPointField",
+            "indexed": false,
+            "docValues": false
+        }
+    ],
+    "add-field": [
+        {
+            "name": "tconst",
+            "type": "id"
+        },
+        {
+            "name": "primaryTitle",
+            "type": "textualField"
+        },
+        {
+            "name": "originalTitle",
+            "type": "textualField"
+        },
+        {
+            "name": "isAdult",
+            "type": "bool"
+        },
+        {
+            "name": "startYear",
+            "type": "integer"
+        },
+        {
+            "name": "runtimeMinutes",
+            "type": "floatNotIndexed"
+        },
+        {
+            "name": "genres",
+            "type": "textualField",
+            "multiValued": true
+        },
+        {
+            "name": "averageRating",
+            "type": "float"
+        },
+        {
+            "name": "numVotes",
+            "type": "integerNotIndexed"
+        },
+        {
+            "name": "directors",
+            "type": "nameField",
+            "multiValued": true
+        },
+        {
+            "name": "synopsis",
+            "type": "textualField"
+        }
+    ]
+}
