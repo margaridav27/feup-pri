@@ -8,23 +8,25 @@ def ap(results, relevant):
     precision_values = [
         len([
             doc
-            for doc in results[:idx]
+            for doc in results[:idx+1]
             if doc['tconst'] in relevant
-        ]) / idx
-        for idx in range(1, len(results))
+        ]) / (idx + 1)
+        for idx in range(0, len(results))
+        if results[idx]['tconst'] in relevant
     ]
     return sum(precision_values)/len(precision_values)
 
 @metric
 def ap10(results, relevant, n=10):
-    """Average Precision at 10"""
+    """Average Precision"""
     precision_values = [
         len([
             doc
-            for doc in results[:idx]
+            for doc in results[:idx+1]
             if doc['tconst'] in relevant
-        ]) / idx
-        for idx in range(1, n+1)
+        ]) / (idx + 1)
+        for idx in range(0, n)
+        if results[idx]['tconst'] in relevant
     ]
     return sum(precision_values)/len(precision_values)
 
