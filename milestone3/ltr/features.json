@@ -1,14 +1,14 @@
 [
-  {
-    "name" : "increment",
-    "class" : "org.apache.solr.ltr.feature.SolrFeature",
-    "params" : {
-      "q" : "mult([averageRating, numVotes])"
+    {
+      "name" : "increment",
+      "class" : "org.apache.solr.ltr.feature.SolrFeature",
+      "params" : {
+        "q" : "{!func}mul(averageRating,numVotes)"
+      }
+    },
+    {
+      "name" : "originalScore",
+      "class" : "org.apache.solr.ltr.feature.OriginalScoreFeature",
+      "params" : {}
     }
-  },
-  {
-    "name" : "originalScore",
-    "class" : "org.apache.solr.ltr.feature.OriginalScoreFeature",
-    "params" : {}
-  }
 ]

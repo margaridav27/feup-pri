@@ -7,6 +7,7 @@ COPY schemas/movie_schema.json /data/movie_schema.json
 
 COPY ltr/config.xml /data/config.xml
 COPY ltr/features.json /data/features.json
+COPY ltr/model.json /data/model.json
 
 COPY startup.sh /scripts/startup.sh
 

@@ -1,0 +1,14 @@
+{
+  "class" : "org.apache.solr.ltr.model.LinearModel",
+  "name" : "myModel",
+  "features" : [
+    { "name" : "increment" },
+    { "name" : "originalScore" }
+  ],
+  "params": {
+  "weights": {
+    "increment": 0.5,
+    "originalScore": 1
+  }
+}
+}

@@ -16,13 +16,18 @@ curl -X POST -H 'Content-type:application/json' \
             --data-binary @/data/movie_schema.json \
             http://localhost:8983/solr/imdb_movies/schema
 
-# Populate collection
-bin/post -c imdb_movies /data/data.json
-
 # Feature definition via API
 curl -X PUT -H 'Content-type:application/json' \
              --data-binary @/data/features.json \
              http://localhost:8983/solr/imdb_movies/schema/feature-store
+
+# Upload model for LTR
+curl -X PUT -H 'Content-type:application/json' \
+            --data-binary @/data/model.json \
+            http://localhost:8983/solr/imdb_movies/schema/model-store
+
+# Populate collection
+bin/post -c imdb_movies /data/data.json
 
 # Restart in foreground mode so we can access the interface
 solr restart -f

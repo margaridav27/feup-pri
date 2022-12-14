@@ -105,12 +105,6 @@
             "class": "solr.FloatPointField",
             "indexed": false,
             "docValues": false
-        },
-        {
-            "name": "integerNotIndexed",
-            "class": "solr.IntPointField",
-            "indexed": false,
-            "docValues": false
         }
     ],
     "add-field": [
@@ -149,7 +143,7 @@
         },
         {
             "name": "numVotes",
-            "type": "integerNotIndexed"
+            "type": "integer"
         },
         {
             "name": "directors",
