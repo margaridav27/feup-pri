@@ -6,13 +6,21 @@
             "name": "increment"
         },
         {
+            "name": "queryMatchTitle"
+        },
+        {
+            "name": "queryMatchSynopsis"
+        },
+        {
             "name": "originalScore"
         }
     ],
     "params": {
         "weights": {
-            "increment": -6.2604003,
-            "originalScore": 0.29666689
+            "increment": 0.6651026,
+            "queryMatchTitle": 0.0,
+            "queryMatchSynopsis": -1.4507693,
+            "originalScore": 0.25443581
         }
     }
 }

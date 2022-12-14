@@ -7,5 +7,5 @@ docker build . -t imdb_movies
 
 docker run -p 8983:8983 --name imdb_movies imdb_movies
 
-..\..\external\svm_rank_windows\svm_rank_learn.exe -c 20.0 train.dat model.dat
+cd milestone3/ltr/data; ../../external/svm_rank/svm_rank_learn.exe -c 5.0 train.dat model.dat
 ```

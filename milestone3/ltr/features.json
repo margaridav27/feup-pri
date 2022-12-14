@@ -3,7 +3,21 @@
         "name": "increment",
         "class": "org.apache.solr.ltr.feature.SolrFeature",
         "params": {
-            "q": "{!func}scale(mul(averageRating,numVotes), 0, 2)"
+            "q": "{!func}scale(mul(averageRating,numVotes), 0, 5)"
+        }
+    },
+    {
+        "name": "queryMatchTitle",
+        "class": "org.apache.solr.ltr.feature.SolrFeature",
+        "params": {
+            "q": "{!dismax qf=primaryTitle}${text}"
+        }
+    },
+    {
+        "name": "queryMatchSynopsis",
+        "class": "org.apache.solr.ltr.feature.SolrFeature",
+        "params": {
+            "q": "{!dismax qf=synopsis}${text}"
         }
     },
     {
