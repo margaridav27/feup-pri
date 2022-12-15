@@ -5,7 +5,7 @@ precreate-core imdb_movies
 sed -i $'/<\/config>/{e cat /data/config.xml\n}' /var/solr/data/imdb_movies/conf/solrconfig.xml
 
 # Start Solr in background mode so we can use the API to upload the schema
-solr start -Denable.runtime.lib=true -Dsolr.ltr.enabled=true
+solr start -Dsolr.ltr.enabled=true
 
 sleep 5
 
