@@ -1,19 +1,5 @@
 [
     {
-        "name": "titleLength",
-        "class": "org.apache.solr.ltr.feature.FieldLengthFeature",
-        "params": {
-            "field": "primaryTitle"
-        }
-    },
-    {
-        "name": "synopsisLength",
-        "class": "org.apache.solr.ltr.feature.FieldLengthFeature",
-        "params": {
-            "field": "synopsis"
-        }
-    },
-    {
         "name":  "rawYear",
         "class": "org.apache.solr.ltr.feature.FieldValueFeature",
         "params": {
