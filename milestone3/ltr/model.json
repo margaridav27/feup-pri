@@ -3,6 +3,21 @@
     "name": "myModel",
     "features": [
         {
+            "name": "titleLength"
+        },
+        {
+            "name": "synopsisLength"
+        },
+        {
+            "name": "rawYear"
+        },
+        {
+            "name": "rawRating"
+        },
+        {
+            "name": "rawVotes"
+        },
+        {
             "name": "increment"
         },
         {
@@ -17,10 +32,15 @@
     ],
     "params": {
         "weights": {
-            "increment": 0.6651026,
-            "queryMatchTitle": 0.0,
-            "queryMatchSynopsis": -1.4507693,
-            "originalScore": 0.25443581
+            "titleLength": 0.66106808,
+            "synopsisLength": 0,
+            "rawYear": -0.81640643,
+            "rawRating": 0.25455645,
+            "rawVotes": 0,
+            "increment": 0,
+            "queryMatchTitle": 0,
+            "queryMatchSynopsis": 0,
+            "originalScore": 0
         }
     }
 }
