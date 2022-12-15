@@ -3,12 +3,6 @@
     "name": "myModel",
     "features": [
         {
-            "name": "titleLength"
-        },
-        {
-            "name": "synopsisLength"
-        },
-        {
             "name": "rawYear"
         },
         {
@@ -32,8 +26,6 @@
     ],
     "params": {
         "weights": {
-            "titleLength": 0.66106808,
-            "synopsisLength": 0,
             "rawYear": -0.81640643,
             "rawRating": 0.25455645,
             "rawVotes": 0,
