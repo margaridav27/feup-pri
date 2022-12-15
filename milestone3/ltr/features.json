@@ -1,5 +1,40 @@
 [
     {
+        "name": "titleLength",
+        "class": "org.apache.solr.ltr.feature.FieldLengthFeature",
+        "params": {
+            "field": "primaryTitle"
+        }
+    },
+    {
+        "name": "synopsisLength",
+        "class": "org.apache.solr.ltr.feature.FieldLengthFeature",
+        "params": {
+            "field": "synopsis"
+        }
+    },
+    {
+        "name":  "rawYear",
+        "class": "org.apache.solr.ltr.feature.FieldValueFeature",
+        "params": {
+            "field": "startYear"
+        }
+    },
+    {
+        "name":  "rawRating",
+        "class": "org.apache.solr.ltr.feature.FieldValueFeature",
+        "params": {
+            "field": "averageRating"
+        }
+    },
+    {
+        "name":  "rawVotes",
+        "class": "org.apache.solr.ltr.feature.FieldValueFeature",
+        "params": {
+            "field": "numVotes"
+        }
+    },
+    {
         "name": "increment",
         "class": "org.apache.solr.ltr.feature.SolrFeature",
         "params": {
