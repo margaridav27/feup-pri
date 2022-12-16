@@ -1,1 +1,30 @@
-{"class": "org.apache.solr.ltr.model.LinearModel", "name": "myModel", "features": [{"name": "rawYear"}, {"name": "increment"}, {"name": "queryMatchTitle"}, {"name": "queryMatchSynopsis"}, {"name": "originalScore"}], "params": {"weights": {"rawYear": 0.034254838, "increment": 0.67846161, "queryMatchTitle": 0, "queryMatchSynopsis": -0.057850242, "originalScore": 0.28489178}}}
+{
+    "class": "org.apache.solr.ltr.model.LinearModel",
+    "name": "myModel",
+    "features": [
+        {
+            "name": "rawYear"
+        },
+        {
+            "name": "increment"
+        },
+        {
+            "name": "queryMatchTitle"
+        },
+        {
+            "name": "queryMatchSynopsis"
+        },
+        {
+            "name": "originalScore"
+        }
+    ],
+    "params": {
+        "weights": {
+            "rawYear": 0.034254838,
+            "increment": 0.67846161,
+            "queryMatchTitle": 0,
+            "queryMatchSynopsis": -0.057850242,
+            "originalScore": 0.28489178
+        }
+    }
+}
