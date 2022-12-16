@@ -1,23 +1,9 @@
 [
     {
-        "name":  "rawYear",
+        "name": "rawYear",
         "class": "org.apache.solr.ltr.feature.FieldValueFeature",
         "params": {
             "field": "startYear"
-        }
-    },
-    {
-        "name":  "rawRating",
-        "class": "org.apache.solr.ltr.feature.FieldValueFeature",
-        "params": {
-            "field": "averageRating"
-        }
-    },
-    {
-        "name":  "rawVotes",
-        "class": "org.apache.solr.ltr.feature.FieldValueFeature",
-        "params": {
-            "field": "numVotes"
         }
     },
     {
@@ -25,7 +11,7 @@
         "class": "org.apache.solr.ltr.feature.SolrFeature",
         "params": {
             "q": "{!func}scale(mul(averageRating,numVotes), 0, 5)"
-        }
+        },
     },
     {
         "name": "queryMatchTitle",
