@@ -206,7 +206,7 @@ The relevance judgments are considered a ground truth because they are the only 
 
 ### What is an average 11-point precision-recall graph for a set of queries?
 
-??
+By definition, a 11-point precision-recall curve is a graph plotting the interpolated precision of an IR system at 11 standard recall levels, that is, {0.0,0.1,0.2,...,1.0}.
 
 ### What is MAP, and do you calculate it for a set of queries in a test collection?
 
@@ -226,7 +226,16 @@ This is one of the most commonly used measures in IR.
 
 ### Name some differences between web search and enterprise search.
 
-??
+Web search and enterprise search are both types of search engines, but they are designed to meet different needs and are used in different contexts. Some of the key differences between web search and enterprise search are:
+
+|                   | Web search                                                                                                                                                       | Enterprise search                                                                                        |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| Scope             | are designed to search the entire World Wide Web                                                                                                                 | are designed to search within a specific organization or enterprise                                      |
+| Content           | index a wide range of content types (e.g. web pages, images, videos, news articles)                                                                              | typically index a more limited set of content types (e.g. documents, emails, database records)           |
+| Users             | are used by a broad audience of users                                                                                                                            | are typically used by employees within an organization                                                   |
+| Accessibility     | are generally publicly accessible                                                                                                                                | are typically restricted to employees or other authorized users                                          |
+| Relevance ranking | use complex algorithms to rank search results based on factors such as the relevance of the content, the authority of the webpage, and the user's search history | may use similar algorithms, but the ranking may be customized for the specific needs of the organization |
+| Security          | generally do not have to worry about security issues                                                                                                             | must be able to protect sensitive information                                                            |
 
 ### How do you index images?
 
@@ -381,9 +390,9 @@ Entity-oriented search typically requires data sources that contain information 
 3. **Control and freedom** - do not block users in a hole or fixed pathway, instead provide mechanisms to recover from them.
 4. **Consistency** - adopt a consistent design that follows the same conventions.
 5. **Error prevention** - make it hard to do unproductive things, i.e. avoid the need to
-undo actions.
+   undo actions.
 6. **Support recognition** - help users not have to remember what they have done or
-need to do.
+   need to do.
 7. **Flexibility and efficiency** - provide features and shortcuts that allow users to be more productive and efficient.
 8. **Aesthetics and minimalism** - keep design simple and minimalist.
 9. **Clear error messages** - provide informative and useful error messages.
@@ -393,12 +402,49 @@ need to do.
 
 ### What is Learning to Rank?
 
+Learning to Rank (LtR) is a machine learning technique used to improve the performance of search engines and other information retrieval systems, which involves training a model to predict the relevance of a document to a given query, based on features of the document and query.
+
+In a typical learning to rank setup, the model is trained using a labeled dataset that consists of query-document pairs, along with a relevance label indicating how relevant the document is to the query. The model is then able to predict the relevance of new query-document pairs, based on the features of the query and document.
+
 ### Which are the main approaches in LTR? How do they differ in terms of input and output data?
+
+There are many different approaches to learning to rank, including pointwise, pairwise, and listwise methods. These methods differ in how they handle the ranking of multiple documents for a given query, and in how they define the loss function used to train the model.
+
+|               | Pointwise                                                                                                                            | Pairwise                                                                                                                                                             | Listwise                                                                                                                                      |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| Input         | query-document pairs, along with a relevance label indicating the relevance of the document to the query                             | query-document pairs, along with a relevance label indicating the relative ordering of the documents for the query (e.g. (q,d,d’) — d is more relevant to q than d’) | entire group of documents associated with a query, i.e. ranking lists                                                                         |
+| Output        | relevance degree of each single document (e.g., R/NR)                                                                                | pairwise preferences (ranging from 1 to -1) between document pairs                                                                                                   | full document predicted ranking for query                                                                                                     |
+| Advantages    | it is relatively simple to implement, as it only requires predicting the relevance of individual documents                           | it can handle the ranking of multiple documents for a given query more directly, compared to pointwise methods, which treat each document independently              | it can directly optimize for the overall ranking of documents for a given query, rather than just the relative ordering of pairs of documents |
+| Disadvantages | it may not be as effective at ranking multiple documents for a given query, as it does not directly optimize for the overall ranking | it can be more computationally expensive, as it requires training on all pairs of documents for a given query                                                        | it can be more difficult to implement, as it requires the model to learn to assign relevance scores to individual documents                   |
 
 ### What is Neural Information Retrieval?
 
+Neural Information Retrieval (NIR) deals with the use of neural network models for tasks such as document ranking and recommendation. It aims to improve the effectiveness and efficiency of IR systems by leveraging the ability of neural networks to process large amounts of data and learn complex patterns. NIR models are often used in situations where traditional information retrieval techniques are insufficient, such as when dealing with large collections of unstructured or partially structured data. Unlike LtR approaches that train ML models over a set of hand-crafted features, NIR models accept the raw text of a query and document as input.
+
 ### How can neural models be used in the retrieval process?
+
+- **Document ranking**: can be used to score and rank documents based on their relevance to a given query. This is typically done by training a neural network to predict the relevance of a document given the query and other relevant information, such as the content of the document and its metadata.
+
+- **Query expansion**: can be used to generate additional terms or phrases that are related to a given query, in order to improve the recall of the retrieval system. This can be done by training a neural network to predict related terms given a query and a collection of documents.
+
+- **Document representation**: can be used to generate compact, dense representations of documents, known as document embeddings, which can be used as input to other information retrieval tasks such as document classification or ranking. Document embeddings can be learned by training a neural network to predict the contents of a document given a small set of summary information.
+
+- **Query suggestion**: can be used to generate suggestions for queries that are related to a given input query. This can be done by training a neural network to predict queries that are likely to be related to a given input query, based on the co-occurrence of queries in a large dataset of search logs.
+
+- **Recommendation**: can be used to generate recommendations of documents or other items based on their relevance to a given query or the preferences of a user. This can be done by training a neural network to predict the relevance of items given a query or user profile, and ranking the items accordingly.
 
 ### What are word embeddings?
 
+A word embeddings are numerical vectors that represent the semantic meaning of a given term sequence. One of the key benefits of using word embeddings is that they can capture the semantic relationships between words, which is important for many NLP tasks.
+
 ### What is the difference between Learning to Rank and Neural Information Retrieval?
+
+Learning to rank (LtR) is a machine learning approach to ranking problems, where a model is trained to predict the relevance of a document to a given query. The goal is to rank the documents in a list such that the most relevant documents are presented to the user first. Neural Information Retrieval (NIR) is a subfield of IR that focuses on the use of neural network models for IR tasks. NIR aims to improve the performance of IR systems by leveraging the capabilities of neural networks to learn complex relationships between queries and documents, and to handle large amounts of data.
+
+There are some key differences between learning to rank and NeuIR:
+
+- LtR is primarily concerned with ranking documents based on their relevance to a given query, whereas NIR is a broader field that encompasses a range of IR tasks such as document retrieval, question answering, and recommendation systems.
+
+- LtR typically involves the use of traditional machine learning algorithms (e.g. gradient boosting, random forests) to learn a ranking function, whereas NIR involves the use of neural network models.
+
+- LtR is often used in the context of web search engines, where the goal is to rank webpages based on their relevance to a user's query. NIR can be applied to a wide range of IR tasks and is not limited to web search.
