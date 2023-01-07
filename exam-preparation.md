@@ -208,6 +208,8 @@ The Average Precision (AvP) is the average of the precision value obtained for t
 
 This is one of the most commonly used measures in IR.
 
+![Screenshot from 2023-01-07 16-42-31](https://user-images.githubusercontent.com/55671968/211161416-368b0150-8425-4d12-8495-30b1ef509628.png)
+
 # Web Search
 
 1. **What are informational, transactional and navigational information needs?**
