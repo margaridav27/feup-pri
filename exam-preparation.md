@@ -134,8 +134,7 @@ Stemming refers to a heuristic process that chops off the ends of words in the h
 
 ### What is a relevant result in a results list?
 
-A document is relevant if it addresses the stated information need, not because it just
-happens to contain all the words in the query. Unless the tool is perfect, only some of the retrieved results are going to be perceived by the user as actually containing information of value with respect to their personal information need.
+A document is relevant if it addresses the stated information need, not because it just happens to contain all the words in the query. Unless the tool is perfect, only some of the retrieved results are going to be perceived by the user as actually containing information of value with respect to their personal information need.
 
 # Vector Model
 
@@ -148,7 +147,7 @@ happens to contain all the words in the query. Unless the tool is perfect, only 
 - **Term Frequency (tf<sub>t,d</sub>)**: number of occurences of the term t in the document d.
 - **Collection Frequency (cf<sub>t</sub>)**: number of occurences of the term t in the collection.
 - **Document Frequency (df<sub>t</sub>)**: number of documents in the collection that contain the term t.
-- **Inverse Document Frequency (idf<sub>t</sub>)**: is the inverse of the document frequency (N/df<sub>t</sub>, where N is the total number of documents in the collection). The rarer the term in a collection, the higher its idf.
+- **Inverse Document Frequency (idf<sub>t</sub>)**: is the inverse of the document frequency (N/df<sub>t</sub>, where N is the total number of documents in the collection). IDF is perceived as a measure of how rare a term is in the collection of documents - the higher the idf, the rarer the term.
 
 ### How do you calculate tf-idf weights?
 
@@ -180,7 +179,7 @@ where d<sub>1</sub> and d<sub>2</sub> are two vectors, and d<sub>1</sub> . d<sub
 - **Recall**: is the fraction of relevant items that are retrieved.
     - R = #(relevant items retrieved) / #(relevant items)
     - R = TP / (TP + FN)
-- **Interpolated Precision**: is the precision at a given recall level, or the maximum precision obtained for all recall levels above a given recall level.
+- **Interpolated Precision**: is the precision at a given recall level, or the maximum precision obtained for all recall levels above a given recall level. The higher the interpolated precision at a certain recall level, the more accurate the model's predictions are.
 
 ### What is precision at k, R-precision?
 
@@ -212,43 +211,113 @@ This is one of the most commonly used measures in IR.
 
 # Web Search
 
-1. **What are informational, transactional and navigational information needs?**
+### What are informational, transactional and navigational information needs?
 
-2. **Name some differences between web search and enterprise search.**
+- **Informational**: is the need to find general information about a topic.
+- **Transactional**: is the need to find a specific resource.
+- **Navigational**: is the need to perform a transaction on the web, such as purchasing a product, downloading a file, etc.
 
-3. **How do you index images?**
+### Name some differences between web search and enterprise search.
 
-4. **Give examples of ranking signals used by search engines.**
+?? 
 
-5. **What are the SCC, IN and OUT components in the view of the web as a bowtie?**
+### How do you index images?
+
+There are several ways that images can be indexed in IR systems:
+
+- **Text-based indexing**: In this method, the images are automatically annotated with text tags based on the content of the images. The text tags are then used to index the images in the same way that text documents are indexed.
+- **Visual feature indexing**: In this method, images are indexed based on the visual features they contain, such as color, shape, texture, and layout. These features are typically extracted automatically using computer vision algorithms.
+- **Image metadata indexing**: In this method, images are indexed based on metadata associated with the images, such as the date the image was taken, the camera used to take the image, and the location where the image was taken.
+- **Textual metadata indexing**: In this method, images are indexed based on textual metadata associated with the images, such as the file name, the caption associated with the image, and the tags associated with the image.
+- **Hybrid indexing**: In this method, a combination of the above methods is used to index images. For example, an image may be indexed using both text-based and visual feature indexing.
+
+### Give examples of ranking signals used by search engines.
+
+Signals can be organized in different types:
+- **Content**: related to the text itself and consider HTML semantics
+- **Structural**: related to the link structure of the web
+- **Usage**: related to the feedback provided by the users, for example through clicks, geographical location, technological context, etc
+
+Signals can also be distinguised according to other dimensions:
+- **User-dependent**: depend on the user's characteristics
+- **Query-dependent**: depend on the user's query
+- **Document-dependent**: depend on a single document
+- **Collection-dependent**: depend on information from the complete collection
+
+### What are the SCC, IN and OUT components in the view of the web as a bowtie?
+
+The SCC (strongly connected component) is a subset of the web that is made up of pages that can be reached from each other through a series of links. These pages form a kind of "loop" within the web, such that it is possible to get from any page in the SCC to any other page in the SCC by following links.
+
+The user can navigate from any page in IN to any page in SCC, by following hyperlinks. Likewise, he can navigate from any page in SCC to any page in OUT. However, it is not possible to navigate from a page in SCC to any page in IN, or from a page in OUT to a page in SCC (or, consequently, IN).
+
+Together, the SCC, IN, and OUT components form the "bowtie" structure of the web, with the SCC representing the central "knot" of the bowtie and the IN and OUT components representing the "ends" of the bowtie.
+
 
 # Link Analysis
 
-1. **What are in-links and out-links for a web page?**
+### What are in-links and out-links for a web page?
 
-2. **How is anchor text used in web search?**
+- **In-links** are links that point to a particular web page from other web pages. For example, if web page A has a link to web page B, then the link from web page A to web page B is an in-link for web page B.
+- **Out-links** are links that a particular web page makes to other web pages. For example, if web page A has a link to web page B, then the link from web page A to web page B is an out-link for web page A.
 
-3. **Calculate PageRank values for a set of linked documents.**
+Both in-links and out-links can be important for search engines when they are trying to understand the content and relevance of a web page. **In-links can help search engines understand how popular and important a particular web page is**, and **out-links can help search engines understand what the web page is about** and how it is related to other pages on the web.
 
-4. **Calculate Hub and Authority values for a set of linked documents.**
+### How is anchor text used in web search?
+
+Anchor text is the visible, clickable text in a hyperlink. In web search, anchor text is used to provide context about the content of the linked page and can help search engines understand the relevance and topic of the linked page.
+
+For example, consider the following hyperlink:
+
+"Learn more about the history of chocolate"
+
+In this case, the anchor text is "Learn more about the history of chocolate." If a search engine encounters this hyperlink while crawling the web, it may use the anchor text to help determine the topic of the linked page and how relevant it is to a particular search query.
+
+Anchor text is just one factor that search engines consider when ranking pages in search results, but it can be an important one, especially when the anchor text is relevant and descriptive of the content on the linked page. The collection of all anchor texts can be explored with standard IR techniques, and incorporated as an additional features in an inverted index and is, in fact, an important feature for image search.
 
 # Query Processing
 
-1. **Describe and distinguish between the two query processing techniques — document-at-a-time and term-at-a-time.**
+### Describe and distinguish between the two query processing techniques — document-at-a-time and term-at-a-time.
 
-2. **In what contexts is query transformation / expansion advantageous?**
+- **Document-at-a-time**: calculates complete scores for documents by processing all term lists, one document at a time. At the end all documents are sorted according to their score.
 
-3. **What techniques can be used to apply transformations / expansions to user queries?**
+- **Term-at-a-time**: accumulates scores for documents by processing term lists one at a time. When all terms are processed, the accumulators contain the final scores of all matching documents.
 
-4. **Identify and describe query expansions techniques, such as relevance feedback or pseudo-relevance feedback.**
+One advantage of document-at-a-time query processing is that it can handle complex queries more easily, since it can examine the entire document to determine whether it matches the query. However, it can be slower than term-at-a-time query processing, since it has to examine each document in the index.
+
+On the other hand, term-at-a-time query processing is generally faster than document-at-a-time query processing, since it only has to examine the index and not the actual documents. However, it can be less effective at handling complex queries, since it only looks at individual terms and not the overall content of the documents.
+
+### In what contexts is query transformation/expansion advantageous?
+
+Query transformation/expansion, is the process of modifying a search query to improve the relevance of the search results. There are several contexts in which this can be advantageous:
+
+- **Ambiguity**: if a search query is ambiguous or has multiple meanings, query transformation can be used to disambiguate the query and improve the relevance of the search results.
+- **Synonyms**: if a search query does not include all of the relevant terms for a particular topic, query transformation can be used to add synonyms or related terms to the query to improve the coverage of the search results.
+- **Misspellings**: if a search query includes misspellings or typos, query transformation can be used to correct the misspellings and improve the accuracy of the search results.
+- **Vocabulary mismatch**: if the vocabulary used in a search query does not match the vocabulary used in the documents being searched, query transformation can be used to map the query terms to the appropriate terms used in the documents.
+
+### What techniques can be used to apply transformations/expansions to user queries?
+
+There are several techniques that can be used to transform/expand user queries:
+
+- **Synonym expansion**: involves adding synonyms or related terms to the query.
+- **Stemming**: involves reducing words to their base form, or stem, in order to capture variations of a word.
+- **Phrase expansion**: involves adding common phrases or collocations to the query.
+- **Proximity expansion**: involves adding terms to the query that are frequently found near the original query terms in the documents being searched.
+- **Concept expansion**: involves adding terms to the query that are related to the original query terms conceptually.
+
+### Identify and describe query expansions techniques, such as relevance feedback or pseudo-relevance feedback.
+
+- **Relevance feedback** aims to improve the accuracy of search results by taking into account the relevance of the documents that a user has clicked on or otherwise indicated are relevant by providing explicit feedback.
+- **Pseudo relevance feedback** uses automatically generated, rather than user-provided, relevance judgments to improve the accuracy of search results. This can be useful in cases where it is difficult to obtain relevance judgments from users.
+- **Implicit relevance feedback** uses a user's search behavior, such as the documents they click on or the queries they submit, to infer their relevance preferences and improve the accuracy of search results. Implicit feedback is less reliable than explicit feedback, but is more useful than pseudo relevance feedback, which contains no evidence of user judgements.
 
 # Entity-oriented Search
 
-1. **What is entity-oriented search? What is necessary to implement it?**
+### What is entity-oriented search? What is necessary to implement it?
 
-2. **Describe the challenges and techniques associated with building entity descriptions, entity ranking, entity linking.**
+### Describe the challenges and techniques associated with building entity descriptions, entity ranking, entity linking.
 
-3. **Describe the data sources typically required for entity oriented search and its characteristics.**
+### Describe the data sources typically required for entity oriented search and its characteristics.
 
 # Search User Interfaces
 
