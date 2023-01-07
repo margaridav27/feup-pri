@@ -1,11 +1,11 @@
-Objectives based on the [moodle's study guide](https://docs.google.com/document/u/1/d/e/2PACX-1vTjdHdtrahXgr26A92oW9aQsf1YpoTUoXeL3p-g-xnDHff-QzHIyKPRK8My1RnWCMcmmNBRLh_I6D7v/pub).
+Questions of [moodle's study guide](https://docs.google.com/document/u/1/d/e/2PACX-1vTjdHdtrahXgr26A92oW9aQsf1YpoTUoXeL3p-g-xnDHff-QzHIyKPRK8My1RnWCMcmmNBRLh_I6D7v/pub).
 
 # Information Processing
 
 ### Distinguish between data, metadata, and information.
 
-- **Data** is a measurement of something, a fact known by direct observation. 
-- **Metadata** is data about data, i.e. data that provides information about one or more aspects of the data. 
+- **Data** is a measurement of something, a fact known by direct observation.
+- **Metadata** is data about data, i.e. data that provides information about one or more aspects of the data.
 - **Information** is data that has been processed, organized and structured and has context/meaning, thus enabling decision making.
 
 ### Identify and describe the phases of a typical information lifecycle.
@@ -13,16 +13,17 @@ Objectives based on the [moodle's study guide](https://docs.google.com/document/
 Create/Generate -> Collect -> Record/Store -> Process -> Distribute/Transmit -> Consume/Use -> Recycle/Erase
 
 The life cycle of information typically includes the following phases:
+
 - **Occurrence**: discover, design, author, etc;
 - **Transmission**: networking, accessing, retrieving, transmitting, etc;
 - **Processing and Management**: collecting, validating, modifying, indexing, classifying, ltering, sorting,
-storing, etc;
+  storing, etc;
 - **Usage**: monitoring, explaining, planning, forecasting, decision-making, educating, learning, etc;
 
 ### Describe typical data processing patterns, pipelines and frameworks, e.g. ETL, EtlT, OSEMN.
 
-- **ETL** (Extract, Transform, Load) is a data integration process that extracts data from a source system, transforms it into a format that is more suitable for analysis, and loads it into a target system. 
-- **OSEMN** (Obtain, Scrub, Explore, Model, iNterpret) is a data science process that is used to analyze data and extract insights from it. 
+- **ETL** (Extract, Transform, Load) is a data integration process that extracts data from a source system, transforms it into a format that is more suitable for analysis, and loads it into a target system.
+- **OSEMN** (Obtain, Scrub, Explore, Model, iNterpret) is a data science process that is used to analyze data and extract insights from it.
 - **ELT** (Extract, Load, Transform) is a data integration process that extracts data from a source system, loads it into a target system, and then transforms it. The sub-pattern **EtLt** introduces a transformation stp before the loading, typically associated with data cleaning tasks.
 
 The ELT patterns allows for a clean split of responsabilities between the data engineers and data scientists. The data engineers are responsible for the EL part, while the data analysts are responsible for the T part.
@@ -32,15 +33,16 @@ The ELT patterns allows for a clean split of responsabilities between the data e
 - **Ownership** - know what data you have access to and what you can do whit it;
 - **Ingestion interface and structure** - how do you get the data and in what form is in;
 - **Volume** - in each step of the pipeline, volume needs to be taken into account; high
-and low volume are dificult to define and depend on available infrastructures and algorithms;
+  and low volume are dificult to define and depend on available infrastructures and algorithms;
 - **Cleanliness and validity** - duplicate data, missing or incomplete data, encoding, etc;
 - **Latency and bandwidth of the source** - need to consider internal update requirements
-and also source system limits, speed, timeouts, etc;
+  and also source system limits, speed, timeouts, etc;
 - **Data selection** - is the author trustable, is the data updated.
 
 ### Identify and describe challenges and techniques related to: data cleaning, data preparation, and data presentation.
 
 **Data cleaning**: identify and fix data quality issues
+
 - missing/inconsistent/outdated values
 - outliers
 - duplicates
@@ -48,37 +50,39 @@ and also source system limits, speed, timeouts, etc;
 - etc
 
 **Data preparation**:
+
 - **Data cleaning**: identify and fix data quality issues
 - **Data transformation**: trasnform data into a format that is more suitable for analysis or manipulation
-    - normalization of values to a comparable scale
-    - scaling values to the same range
-    - non-linear transformations to deal with skewness
-    - discretization or binning
+  - normalization of values to a comparable scale
+  - scaling values to the same range
+  - non-linear transformations to deal with skewness
+  - discretization or binning
 - **Data synthesis**: create new data from existing data
 - **Data integration**: combine data from multiple sources
 - **Data reduction**: eliminate data from the collection
-    - filtering
-    - sampling
-    - aggregation
+  - filtering
+  - sampling
+  - aggregation
 
 **Data presentation**: present data in a user-friendly format
+
 - charts (suitable for numeric data)
-    - bar/stacked bar/line/pie charts
-    - box/scatter plots
-    - histograms 
-    - etc
+  - bar/stacked bar/line/pie charts
+  - box/scatter plots
+  - histograms
+  - etc
 - time series or timelines (help represent observations over time)
 - maps (focus on geographical data)
 - interactive (where control is given to the user to explore different paths or options)
 - words (representing highlights of textual descriptions)
-    - word clouds
-    - etc
+  - word clouds
+  - etc
 
 ### Describe the importance of data pipelines and how Makefiles can be used to implement them.
 
 - **Data pipelines** are a sequence of data processing elements connected in series, where the output of one element is the input of the next one. They are used to automate data processing tasks, and are typically used to process large amounts of data. Data pipelines must be designed to be robust, scalable, fault-tolerant and easily maintainable.
 - **Makefiles** are a simple way to define a data pipeline, by defining targets and
-rules to execute. They are typically used to automate the build process of a software project, but can also be used to automate data processing tasks. The underlying abstraction is of a dependency graph, where tasks depend on the execution of other tasks. Additionally, Make is able to automatically decide what to execute based on direct or indirect dependencies to files that have changed.
+  rules to execute. They are typically used to automate the build process of a software project, but can also be used to automate data processing tasks. The underlying abstraction is of a dependency graph, where tasks depend on the execution of other tasks. Additionally, Make is able to automatically decide what to execute based on direct or indirect dependencies to files that have changed.
 
 # IR Taks & Systems
 
@@ -96,6 +100,7 @@ rules to execute. They are typically used to automate the build process of a sof
 ### Give some examples of retrieval tasks evaluated in TREC.
 
 Some examples are:
+
 - clinical trials track
 - conversational assistance track
 - deep learning track
@@ -118,7 +123,7 @@ Some examples are:
 
 ### Define stemming.
 
-Stemming refers to a heuristic process that chops off the ends of words in the hope of  reducing in ectional forms.
+Stemming refers to a heuristic process that chops off the ends of words in the hope of reducing in ectional forms.
 
 ### What is an inverted index, a vocabulary, a postings list?
 
@@ -154,14 +159,15 @@ A document is relevant if it addresses the stated information need, not because 
 **tf-idf<sub>t,d</sub> = tf<sub>t,d</sub> x idf<sub>t</sub>**
 
 tf-idf<sub>t,d</sub> assigns to a term t a weight in a document d that is:
+
 - highest when t occurs many times within a small number of documents (high tf, high idf);
 - lower when the term occurs fewer times in a document, or occurs in many
-documents (low tf, high idf or low idf);
+  documents (low tf, high idf or low idf);
 - lowest when the term occurs in virtually all documents (low idf).
 
 ### How do you rank documents in the vector model?
 
-The ranking of documents in the vector model is based on the cosine similarity between the query and the documents. 
+The ranking of documents in the vector model is based on the cosine similarity between the query and the documents.
 
 The cosine similarity between two vectors is defined as:
 
@@ -174,11 +180,11 @@ where d<sub>1</sub> and d<sub>2</sub> are two vectors, and d<sub>1</sub> . d<sub
 ### What is precision, recall, interpolated precision?
 
 - **Precision**: is the fraction of retrieved items that are relevant.
-    - P = #(relevant items retrieved) / #(retrieved items)
-    - P = TP / (TP + FP)
+  - P = #(relevant items retrieved) / #(retrieved items)
+  - P = TP / (TP + FP)
 - **Recall**: is the fraction of relevant items that are retrieved.
-    - R = #(relevant items retrieved) / #(relevant items)
-    - R = TP / (TP + FN)
+  - R = #(relevant items retrieved) / #(relevant items)
+  - R = TP / (TP + FN)
 - **Interpolated Precision**: is the precision at a given recall level, or the maximum precision obtained for all recall levels above a given recall level. The higher the interpolated precision at a certain recall level, the more accurate the model's predictions are.
 
 ### What is precision at k, R-precision?
@@ -189,6 +195,7 @@ where d<sub>1</sub> and d<sub>2</sub> are two vectors, and d<sub>1</sub> . d<sub
 ### Name the components of a test collection.
 
 To measure the effectiveness of a search system in the standard way, three things are needed:
+
 - A document collection;
 - A test suite of information needs, expressible as queries;
 - A set of relevance judgments, typically a binary assessment of either relevant or non-relevant for each query-document pair.
@@ -203,7 +210,7 @@ The relevance judgments are considered a ground truth because they are the only 
 
 ### What is MAP, and do you calculate it for a set of queries in a test collection?
 
-The Average Precision (AvP) is the average of the precision value obtained for the set of top k documents existing after each relevant document is retrieved. Given a set of queries, the Mean Average Precision (MAP) is the mean over the AvP values. 
+The Average Precision (AvP) is the average of the precision value obtained for the set of top k documents existing after each relevant document is retrieved. Given a set of queries, the Mean Average Precision (MAP) is the mean over the AvP values.
 
 This is one of the most commonly used measures in IR.
 
@@ -219,7 +226,7 @@ This is one of the most commonly used measures in IR.
 
 ### Name some differences between web search and enterprise search.
 
-?? 
+??
 
 ### How do you index images?
 
@@ -234,11 +241,13 @@ There are several ways that images can be indexed in IR systems:
 ### Give examples of ranking signals used by search engines.
 
 Signals can be organized in different types:
+
 - **Content**: related to the text itself and consider HTML semantics
 - **Structural**: related to the link structure of the web
 - **Usage**: related to the feedback provided by the users, for example through clicks, geographical location, technological context, etc
 
 Signals can also be distinguised according to other dimensions:
+
 - **User-dependent**: depend on the user's characteristics
 - **Query-dependent**: depend on the user's query
 - **Document-dependent**: depend on a single document
@@ -251,7 +260,6 @@ The SCC (strongly connected component) is a subset of the web that is made up of
 The user can navigate from any page in IN to any page in SCC, by following hyperlinks. Likewise, he can navigate from any page in SCC to any page in OUT. However, it is not possible to navigate from a page in SCC to any page in IN, or from a page in OUT to a page in SCC (or, consequently, IN).
 
 Together, the SCC, IN, and OUT components form the "bowtie" structure of the web, with the SCC representing the central "knot" of the bowtie and the IN and OUT components representing the "ends" of the bowtie.
-
 
 # Link Analysis
 
@@ -315,28 +323,82 @@ There are several techniques that can be used to transform/expand user queries:
 
 ### What is entity-oriented search? What is necessary to implement it?
 
-### Describe the challenges and techniques associated with building entity descriptions, entity ranking, entity linking.
+Entity-oriented search is the search paradigm of organizing and accessing information centered around entities, and their attributes and relationships.
+
+To implement entity-oriented search, the following is typically necessary:
+
+- **Entity recognition**: recognize and extract entities from the text of the documents being searched. This can be done using natural language processing (NLP) techniques such as named entity recognition (NER).
+- **Entity indexing**: index the entities extracted from the documents, so that they can be searched efficiently.
+- **Entity ranking**: rank the entities in the search results based on their relevance to the search query.
+- **Entity-aware query processing**: process queries that are expressed in terms of entities, rather than just individual keywords.
+
+### Describe the challenges and techniques associated with building entity descriptions, entity ranking and entity linking.
+
+**Entity Descriptions**:
+
+- The goal of constructing entity descriptions is to estimate a term count associated with each entity.
+- Entity descriptions can be assembled by considering the textual content, from a document collection, in which the entities occurs.
+- One challenge associated with building entity descriptions is determining which information about the entity is most relevant and useful to include in the description.
+- Techniques such as collaborative filtering, user modeling, and user feedback can be used to tailor the entity descriptions to the needs and preferences of the users.
+
+**Entity Ranking**:
+
+- With the term-based entity representations, one now needs to rank entities with respect to their relevance to a search query. This can be viewed as a the problem of assigning a score to each entity in the catalog.
+- One challenge associated with entity ranking is determining which entities are most relevant to a particular search query. This can be difficult, as different users may have different definitions of relevance, and the same entity may be relevant for different reasons in different contexts.
+- Techniques such as machine learning, natural language processing, and information retrieval can be used to automatically assess the relevance of entities based on various features such as their content, context, and user feedback.
+
+**Entity Linking**:
+
+- Entity linking is the task of recognizing entity mentions in text and linking them to the corresponding entries in a knowledge base.
+- One challenge associated with entity linking is determining which entity a particular mention of an entity in a document refers to. This can be difficult, as there may be multiple entities with similar names or descriptions, and the mention of the entity may not provide enough context to distinguish between them.
+- Techniques such as entity disambiguation, named entity recognition, and knowledge base reasoning can be used to identify the correct entity based on various features such as the context in which the entity is mentioned, the relationships between the entities, and the properties of the entities.
 
 ### Describe the data sources typically required for entity oriented search and its characteristics.
 
+Entity-oriented search typically requires data sources that contain information about entities, such as their names, descriptions, relationships, and properties. Some examples include:
+
+- **Knowledge bases**: structured collections of information (structured data) about entities and their relationships.
+- **Web pages**: unstructured collections of text and other content (unstructured data) that can be found on the web. Web pages can be a good source of information about entities, but the information may be scattered and unstructured, and may require additional processing to extract and structure the entity-related information.
+- **Social media**: can be a good source of information about entities, but the information may be noisy, biased, or unreliable.
+- **Enterprise data**: structured collections of information (structured data) about entities that are specific to a particular organization or domain, such as customer records or product catalogs.
+
 # Search User Interfaces
 
-1. **Identify and describe user interface techniques and elements that can be used to improve user experience in using search systems.**
+### Identify and describe user interface techniques and elements that can be used to improve user experience in using search systems.
 
-2. **Describe how user interaction innovations and experiments can be evaluated.**
+??
 
-3. **What are design principles and heuristics?**
+### Describe how user interaction innovations and experiments can be evaluated.
+
+- **IR style**: systems are evaluated within a TREC-style environment, based on datasets, specific tasks, and known best results for each task (calculated by human experts).
+- **Empirical**: observing and recording actual user performance. Common measurements used in empirical user studies are the number of searches, the number of terms per search, the number of results visited, search times, task accuracy, etc. Qualitative methods such as interviews, surveys and observations are also possible.
+- **Analytical**: collecting data on how users interact with the system, and then analyzing that data to identify patterns and trends, and ultimately identify areas for improvement.
+
+### What are design principles and heuristics?
+
+1. **Visibility** - keep the user informed about what is happening at any given time.
+2. **Language** - adopt language that the user can understand.
+3. **Control and freedom** - do not block users in a hole or fixed pathway, instead provide mechanisms to recover from them.
+4. **Consistency** - adopt a consistent design that follows the same conventions.
+5. **Error prevention** - make it hard to do unproductive things, i.e. avoid the need to
+undo actions.
+6. **Support recognition** - help users not have to remember what they have done or
+need to do.
+7. **Flexibility and efficiency** - provide features and shortcuts that allow users to be more productive and efficient.
+8. **Aesthetics and minimalism** - keep design simple and minimalist.
+9. **Clear error messages** - provide informative and useful error messages.
+10. **Help and documentation** - provide help as documentation, FAQs, and examples.
 
 # Learning to Rank and Neural IR
 
-1. **What is Learning to Rank?**
+### What is Learning to Rank?
 
-2. **Which are the main approaches in LTR? How do they differ in terms of input and output data?**
+### Which are the main approaches in LTR? How do they differ in terms of input and output data?
 
-3. **What is Neural Information Retrieval?**
+### What is Neural Information Retrieval?
 
-4. **How can neural models be used in the retrieval process?**
+### How can neural models be used in the retrieval process?
 
-5. **What are word embeddings?**
+### What are word embeddings?
 
-6. **What is the difference between Learning to Rank and Neural Information Retrieval?**
+### What is the difference between Learning to Rank and Neural Information Retrieval?
