@@ -175,6 +175,20 @@ The cosine similarity between two vectors is defined as:
 
 where d<sub>1</sub> and d<sub>2</sub> are two vectors, and d<sub>1</sub> . d<sub>2</sub> is the dot product of the two vectors.
 
+### Why is the idf of a term always finite? (Manning, 6.8)
+
+The idf of a term if the inverse of the df. The only scenario in which the idf of a term is infinite is when the df of the term is 0. However, this is not possible, since the df of a term is always at least 1, otherwise, the term wouldn't even be part of the vocabulary.
+
+### What is the idf of a term that occurs in every document? Compare this with the use of stop word lists. (Manning, 6.9)
+
+One can deduce this by two means:
+- considering that idf measures how rare a term is in the collection of documents, simply by this definition one can conclude that the idf of a term that occurs in every document is 0, because it is not rare at all;
+- considering the formula of the idf, one can also conclude that the idf of a term that occurs in every document is 0, because the df will equal to N and so log(N/df) = log(1) = 0.
+
+### Can the tf-idf weight of a term in a document exceed 1? (Manning, 6.11)
+
+Yes, if a term appears very frequently in a document and is rare in the collection of documents, the tf-idf weight of the term in that document could be very high, possibly exceeding 1.
+
 # Evaluation
 
 ### What is precision, recall, interpolated precision?
