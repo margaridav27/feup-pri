@@ -221,8 +221,8 @@ This is one of the most commonly used measures in IR.
 ### What are informational, transactional and navigational information needs?
 
 - **Informational**: is the need to find general information about a topic.
-- **Transactional**: is the need to find a specific resource.
-- **Navigational**: is the need to perform a transaction on the web, such as purchasing a product, downloading a file, etc.
+- **Navigational**: is the need to find a specific resource.
+- **Transactional**: is the need to perform a transaction on the web, such as purchasing a product, downloading a file, etc.
 
 ### Name some differences between web search and enterprise search.
 
