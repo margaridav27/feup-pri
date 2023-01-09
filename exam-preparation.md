@@ -518,5 +518,10 @@ Mean over the AvP values.
 
 ![Screenshot from 2023-01-09 16-11-46](https://user-images.githubusercontent.com/55671968/211355393-2864d1eb-101d-4c8a-b9dd-3c6b80f56496.png)
 
+### HITS Algorithm
 
+![image](https://user-images.githubusercontent.com/55671968/211428736-93fbe5ed-b657-4839-8b0f-b2d50ed09e7d.png)
 
+### PageRank Algorithm
+
+![image](https://user-images.githubusercontent.com/55671968/211429145-a42607ce-3d78-40ed-b4f6-36cee4abed21.png)
