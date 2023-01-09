@@ -389,7 +389,15 @@ Entity-oriented search typically requires data sources that contain information 
 
 ### Identify and describe user interface techniques and elements that can be used to improve user experience in using search systems.
 
-??
+There are several user interface (UI) techniques and elements that can be used to improve the user experience in using search systems, including:
+
+- **Autocomplete**: suggesting search terms or phrases as the user types can save time and help users find what they're looking for more quickly.
+- **Filters**: allowing users to narrow down their search results by applying filters can help them find more relevant results and improve their overall search experience.
+- **Sort options**: providing options to sort search results can help users find the most relevant or up-to-date results for their search.
+- **Related searches**: showing users a list of related searches can help them discover new and relevant content, and can also help them refine their search if their initial search was not successful.
+- **Search suggestions**: providing users with suggested search terms or phrases can help them discover new content and refine their search.
+- **Synonym support**: allowing users to search for synonyms of their search terms can help them find more relevant results and improve their overall search experience.
+- **Faceted search**: applying multiple filters at once can help them find more relevant results and improve their overall search experience.
 
 ### Describe how user interaction innovations and experiments can be evaluated.
 
