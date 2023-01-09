@@ -502,10 +502,19 @@ Mean over the AvP values.
 
 ### F-Measure (F)
 
+![Screenshot from 2023-01-09 16-08-48](https://user-images.githubusercontent.com/55671968/211355200-b4193f36-0194-4ede-aea4-02a1a0a0499d.png)
+
 ### Interpolated Precision (P<sub>interp</sub>)
 
-### Term Frequency (tf<sub>t,d</sub>)
-
-### Document Frequency (df<sub>t</sub>)
+![image](https://user-images.githubusercontent.com/55671968/211355456-5eb0e738-dd96-4e2c-a814-83cc570b7fc8.png)
 
 ### Inverse Document Frequency (idf<sub>t</sub>)
+
+![Screenshot from 2023-01-09 16-11-33](https://user-images.githubusercontent.com/55671968/211355267-673462f6-9f37-4899-968f-e0604ccac73d.png)
+
+### Term Frequency - Inverse Document Frequency (tf-idf<sub>t,d</sub>)
+
+![Screenshot from 2023-01-09 16-11-46](https://user-images.githubusercontent.com/55671968/211355393-2864d1eb-101d-4c8a-b9dd-3c6b80f56496.png)
+
+
+
