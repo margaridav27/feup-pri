@@ -496,6 +496,8 @@ Fraction of relevant items that are retrieved.
 
 Average of the precision value obtained for the set of top k documents existing after each relevant document is retrieved. 
 
+![image](https://user-images.githubusercontent.com/55671968/211381197-2f201fdc-e860-4e4e-ab74-133706033eb1.png)
+
 ### Mean Average Precision (MAP)
 
 Mean over the AvP values.
