@@ -182,6 +182,7 @@ The idf of a term if the inverse of the df. The only scenario in which the idf o
 ### What is the idf of a term that occurs in every document? Compare this with the use of stop word lists. (Manning, 6.9)
 
 One can deduce this by two means:
+
 - considering that idf measures how rare a term is in the collection of documents, simply by this definition one can conclude that the idf of a term that occurs in every document is 0, because it is not rare at all;
 - considering the formula of the idf, one can also conclude that the idf of a term that occurs in every document is 0, because the df will equal to N and so log(N/df) = log(1) = 0.
 
@@ -470,3 +471,41 @@ There are some key differences between learning to rank and NeuIR:
 - LtR typically involves the use of traditional machine learning algorithms (e.g. gradient boosting, random forests) to learn a ranking function, whereas NIR involves the use of neural network models.
 
 - LtR is often used in the context of web search engines, where the goal is to rank webpages based on their relevance to a user's query. NIR can be applied to a wide range of IR tasks and is not limited to web search.
+
+# Other Important Formulas
+
+### Precision (P)
+
+Fraction of retrieved items that are relevant.
+
+~~~
+  P = #(relevant items retrieved) / #(retrieved items)
+  P = TP / (TP + FP)
+~~~
+
+### Recall (R)
+
+Fraction of relevant items that are retrieved.
+
+~~~
+  R = #(relevant items retrieved) / #(relevant items)
+  R = TP / (TP + FN)
+~~~
+
+### Average Precision (AvP)
+
+Average of the precision value obtained for the set of top k documents existing after each relevant document is retrieved. 
+
+### Mean Average Precision (MAP)
+
+Mean over the AvP values.
+
+### F-Measure (F)
+
+### Interpolated Precision (P<sub>interp</sub>)
+
+### Term Frequency (tf<sub>t,d</sub>)
+
+### Document Frequency (df<sub>t</sub>)
+
+### Inverse Document Frequency (idf<sub>t</sub>)
